@@ -3,5 +3,5 @@
 ### VMwareのインストール
 - [Windows](https://github.com/Decwest/introduction-to-ros/blob/main/environment/vmware/windows/README.md)
 - [Mac]()
-### [VMware上でのUbuntu 20.04のインストール]()
+### [VMware上でのUbuntu 20.04のインストール](https://github.com/Decwest/introduction-to-ros/blob/main/environment/vmware/install-ubuntu/README.md)
 ### [ROSのインストール]()
