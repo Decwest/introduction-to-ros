@@ -26,7 +26,7 @@
 
 ## 環境構築
 
-### [Ubuntu環境の用意](https://github.com/Decwest/introduction-to-ros/blob/main/environment/vmware/README.md)
+### [Ubuntu環境の用意](https://github.com/Decwest/introduction-to-ros/blob/main/environment/README.md)
 Windows, Mac PCを所持している方はVMwareで仮想マシンを構築することで環境を用意します．
 
 ### [ROSのインストール](https://github.com/Decwest/introduction-to-ros/blob/main/environment/ros/README.md)
