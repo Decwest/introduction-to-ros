@@ -1,6 +1,6 @@
 # ROS インストール
 
-[前のページ](https://github.com/Decwest/introduction-to-ros)
+[前のページ](https://github.com/Decwest/introduction-to-ros/environment/README.md)
 
 ## 概要
 
@@ -81,13 +81,13 @@ echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
  <details><summary>各行の説明</summary><div>
 
 - ~/catkin_ws/srcというディレクトリ（フォルダ）を作成
- - ~は[ホームディレクトリ](https://uxmilk.jp/27448)
- - ホームディレクトリにcatkin_wsというフォルダを作成し，さらにその中にsrcフォルダを作成
- - mkdirはmake directoryの略．-pオプションをつけると一気に複数階層分作成可能．
+  - ~は[ホームディレクトリ](https://uxmilk.jp/27448)
+  - ホームディレクトリにcatkin_wsというフォルダを作成し，さらにその中にsrcフォルダを作成
+  - mkdirはmake directoryの略．-pオプションをつけると一気に複数階層分作成可能．
 - ~/catkin_wsに作業ディレクトリを移動
- - cdはchange directoryの略
+  - cdはchange directoryの略
 - ROSパッケージをビルドするコマンド
- - 初回実行時はその際にいるディレクトリをワークスペースと認識．今回はその用途．
+  - 初回実行時はその際にいるディレクトリをワークスペースと認識．今回はその用途．
 - ~/catkin_ws/devel/setup.bashというbashスクリプトを実行（これによりROS関連のディレクトリにパスが通る）
 - "source ~/catkin_ws/devel/setup.bash"という記述を~/.bashrcに追記
 
@@ -132,10 +132,10 @@ echo "export SVGA_VGPU10=0" >> ~/.profile
  <details><summary>各行の説明</summary><div>
 
 - SVGA_VGPU10という名前の環境変数を宣言し，値に0を代入
- - これによりOpenGL2が使用されるようになる（デフォルトではOpenGL3．VMwareがOpenGL3に対応していないことがある）
+  - これによりOpenGL2が使用されるようになる（デフォルトではOpenGL3．VMwareがOpenGL3に対応していないことがある）
 - "export SVGA_VGPU10=0"という記述を~/.profileに追記
- - ~/.profileはログイン時に実行
- - ~/.bashrcに追記すると，仮にターミナルを介さずにGazeboが実行された場合うまくいかないため，~/.profileに追記
+  - ~/.profileはログイン時に実行
+  - ~/.bashrcに追記すると，仮にターミナルを介さずにGazeboが実行された場合うまくいかないため，~/.profileに追記
 
 </div></details>
 
