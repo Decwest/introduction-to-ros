@@ -12,7 +12,7 @@ Ubuntu 20.04 に ROS (noetic) をインストールします．
 
 また，ペーストはタッチパッドを二本指で押すことでWindowsでいう右クリックすると出てくるような画面が表示され，そこでPasteを押すことで出来ます．
 
-
+[ROSの公式Wiki](http://wiki.ros.org/noetic/Installation/Ubuntu)
 
 ## ROSのインストール
 
@@ -25,6 +25,16 @@ sudo apt update && \
 sudo apt install ros-noetic-desktop-full -y
 ```
 
+ <details><summary>各行の説明</summary><div>
+
+- aptリポジトリのラインナップを更新
+- curlというツールをインストール（-yはインストール中の質問に全てYesで答えるという意味）
+- ROSに関連するツールをaptのラインナップに追加
+- ROSのaptリポジトリにアクセスするための公開鍵を登録
+- aptリポジトリのラインナップを更新
+- rosのインストール（desktop-fullはシミュレータ等含む全てをインストール．他にもros-base等選択肢はあります）
+
+</div></details>
 
 
 ## 環境設定
@@ -32,9 +42,14 @@ sudo apt install ros-noetic-desktop-full -y
 ```shell
 source /opt/ros/noetic/setup.bash
 echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
-source ~/.bashrc
 ```
 
+ <details><summary>各行の説明</summary><div>
+
+- /opt/ros/noetic/setup.bashというbashスクリプトを実行 (source) （これによりROS関連のディレクトリにパスが通る）
+- "source /opt/ros/noetic/setup.bash"という記述を~/.bashrcに追記 (echo)
+
+</div></details>
 
 
 ## ツール等インストール，設定
@@ -89,8 +104,8 @@ Ctrl+Cで終了すると安全です．
 VMware上で実行しており，gazeboの描画がうまくいかない場合，以下のコマンドを入力してください．
 
 ```shell
+export SVGA_VGPU10=0
 echo "export SVGA_VGPU10=0" >> ~/.bashrc
-source ~/.bashrc
 ```
 
 
