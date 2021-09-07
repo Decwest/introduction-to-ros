@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="mobile-web-app-capable" content="yes">
     <title>
-        ROS (Robot Operating System) 入門 - HackMD
+        Ubuntu環境の用意 - HackMD
     </title>
     <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
     <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
@@ -34,37 +34,16 @@
 </head>
 
 <body>
-    <div id="doc" class="markdown-body container-fluid comment-inner comment-enabled" data-hard-breaks="true"><h1 id="ROS-Robot-Operating-System-入門" data-id="ROS-Robot-Operating-System-入門"><a class="anchor hidden-xs" href="#ROS-Robot-Operating-System-入門" title="ROS-Robot-Operating-System-入門"><span class="octicon octicon-link"></span></a><span>ROS (Robot Operating System) 入門</span></h1><h2 id="概要" data-id="概要"><a class="anchor hidden-xs" href="#概要" title="概要"><span class="octicon octicon-link"></span></a><span>概要</span></h2><p><span>今後ROSについて自力で学習できるような環境と地力を獲得することを目標としています．</span><br>
-<span>内容は環境構築，ROSの基本的な事項，シミュレーションの実行から構成されています．</span></p><details><summary>大まかな内容</summary><div>
-<ul>
-<li><span>ROSが動作する環境の構築</span>
-<ul>
-<li><span>Ubuntu 20.04 環境の用意</span></li>
-<li><span>ROS (noetic) のインストール</span></li>
-</ul>
-</li>
-<li><span>ROSの基本的な事項</span>
-<ul>
-<li><span>トピック通信</span></li>
-<li><span>roslaunch</span></li>
-<li><span>コマンドラインツール</span></li>
-</ul>
-</li>
-<li><span>Rvizで可視化</span>
-<ul>
-<li><span>ロボットモデルをURDF形式で記述</span></li>
-<li><span>Rvizでロボットモデルの可視化</span></li>
-</ul>
-</li>
-<li><span>Gazeboを用いたシミュレーション</span>
-<ul>
-<li><span>LiDARを1台積んだ差動二輪ロボットモデルをURDF形式で記述</span></li>
-<li><span>Gazeboでシミュレーション</span></li>
-<li><span>Rvizでロボットモデルとトピックを可視化</span></li>
-</ul>
-</li>
-</ul>
-</div></details><h2 id="環境構築" data-id="環境構築"><a class="anchor hidden-xs" href="#環境構築" title="環境構築"><span class="octicon octicon-link"></span></a><span>環境構築</span></h2><h3 id="Ubuntu環境の用意" data-id="Ubuntu環境の用意"><a class="anchor hidden-xs" href="#Ubuntu環境の用意" title="Ubuntu環境の用意"><span class="octicon octicon-link"></span></a><a href="https://decwest.github.io/introduction-to-ros/environment/vmware/index.html" rel="noopener" target="_blank"><span>Ubuntu環境の用意</span></a></h3><p><span>Windows, Mac PCを所持している方はVMwareで仮想マシンを構築することで環境を用意します．</span></p><h3 id="ROSのインストール" data-id="ROSのインストール"><a class="anchor hidden-xs" href="#ROSのインストール" title="ROSのインストール"><span class="octicon octicon-link"></span></a><a href="https://decwest.github.io/introduction-to-ros/environment/ros/index.html" rel="noopener" target="_blank"><span>ROSのインストール</span></a></h3><p><span>Ubuntu環境にROSをインストールします．</span></p><h2 id="ROSの基本的な事項" data-id="ROSの基本的な事項"><a class="anchor hidden-xs" href="#ROSの基本的な事項" title="ROSの基本的な事項"><span class="octicon octicon-link"></span></a><span>ROSの基本的な事項</span></h2><h2 id="Rvizで可視化" data-id="Rvizで可視化"><a class="anchor hidden-xs" href="#Rvizで可視化" title="Rvizで可視化"><span class="octicon octicon-link"></span></a><span>Rvizで可視化</span></h2><h2 id="Gazeboを用いたシミュレーション" data-id="Gazeboを用いたシミュレーション"><a class="anchor hidden-xs" href="#Gazeboを用いたシミュレーション" title="Gazeboを用いたシミュレーション"><span class="octicon octicon-link"></span></a><span>Gazeboを用いたシミュレーション</span></h2></div>
+    <div id="doc" class="markdown-body container-fluid comment-inner comment-enabled" data-hard-breaks="true"><h1 id="Ubuntu環境の用意" data-id="Ubuntu環境の用意"><a class="anchor hidden-xs" href="#Ubuntu環境の用意" title="Ubuntu環境の用意"><span class="octicon octicon-link"></span></a><span>Ubuntu環境の用意</span></h1><p><a href="https://github.com/Decwest/introduction-to-ros" target="_blank" rel="noopener"><span>前のページ</span></a></p><h2 id="概要" data-id="概要"><a class="anchor hidden-xs" href="#概要" title="概要"><span class="octicon octicon-link"></span></a><span>概要</span></h2><p><span>ROSを動かすには</span><a href="http://www.ubuntulinux.jp/ubuntu" target="_blank" rel="noopener"><span>Ubuntu</span></a><span>というOSが必要です．</span><br>
+<span>そこで，ここではWindowsやMacユーザーがUbuntuを実行できる環境を用意する方法を紹介します．</span><br>
+<span>様々な方法がありますが，ここでは導入の簡潔さを重視し，</span><a href="https://www.vmware.com/jp/products/workstation-player.html" target="_blank" rel="noopener"><span>VMware</span></a><span>を用いてPC上に仮想マシンを構築し，そこにUbuntuをインストールする方法をとります．</span></p><h2 id="VMwareのインストール" data-id="VMwareのインストール"><a class="anchor hidden-xs" href="#VMwareのインストール" title="VMwareのインストール"><span class="octicon octicon-link"></span></a><span>VMwareのインストール</span></h2><h3 id="Windowsの方" data-id="Windowsの方"><a class="anchor hidden-xs" href="#Windowsの方" title="Windowsの方"><span class="octicon octicon-link"></span></a><a href="https://decwest.github.io/introduction-to-ros/environment/vmware/windows/index.html" rel="noopener" target="_blank"><span>Windowsの方</span></a></h3><h3 id="Macの方" data-id="Macの方"><a class="anchor hidden-xs" href="#Macの方" title="Macの方"><span class="octicon octicon-link"></span></a><a href="" rel="noopener" target="_blank"><span>Macの方</span></a></h3><h2 id="VMware上でのUbuntu-2004のインストール" data-id="VMware上でのUbuntu-2004のインストール"><a class="anchor hidden-xs" href="#VMware上でのUbuntu-2004のインストール" title="VMware上でのUbuntu-2004のインストール"><span class="octicon octicon-link"></span></a><a href="https://decwest.github.io/introduction-to-ros/environment/vmware/install-ubuntu/index.html" rel="noopener" target="_blank"><span>VMware上でのUbuntu 20.04のインストール</span></a></h2><h2 id="リンク" data-id="リンク"><a class="anchor hidden-xs" href="#リンク" title="リンク"><span class="octicon octicon-link"></span></a><span>リンク</span></h2><p><a href="https://decwest.github.io/introduction-to-ros/environment/ros/index.html" target="_blank" rel="noopener"><span>次のページ</span></a></p><p><a href="https://decwest.github.io/introduction-to-ros/index.html" target="_blank" rel="noopener"><span>目次</span></a></p><hr><h3 id="こぼれ話" data-id="こぼれ話"><a class="anchor hidden-xs" href="#こぼれ話" title="こぼれ話"><span class="octicon octicon-link"></span></a><span>こぼれ話</span></h3><p><span>その他には以下を用いて構築することを検討していました．</span></p><ul>
+<li><span>Virtual box</span><br>
+<span>VMwareのほうが軽い印象があったので（要検証），VMがダメだった人にはVirtual boxを薦めようと思っていました．</span></li>
+<li><span>Docker</span><br>
+<span>軽いしDockerfile配れるし当初は最有力候補でしたが，X windowの設定が初学者には大変かと思いやめました．</span><a href="https://github.com/Tiryoh" target="_blank" rel="noopener"><span>Tiryoh</span></a><span>さんの</span><a href="https://memoteki.net/archives/2955" target="_blank" rel="noopener"><span>Webブラウザで試せるDockerfile</span></a><span>を用いればGUIの問題は解消し非常に簡潔にROS環境を導入できますが，Ubuntu環境の用意とROSのインストールも込みで扱おうと思ったため今回は使用しませんでした．ROS環境をサクッと用意して試したい方には大変おすすめです．</span></li>
+<li><span>WSL2</span><br>
+<span>WindowsユーザーはWSL2でもよいかなと思いましたが，X Windowの設定とか大変なのでやめました．VMより軽いので興味のある方は入れてみてください．</span></li>
+</ul></div>
     <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
         <div class="pull-right dropdown">
             <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
@@ -72,16 +51,18 @@
             </a>
             <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
                 <div class="toc"><ul class="nav">
-<li><a href="#ROS-Robot-Operating-System-入門" title="ROS (Robot Operating System) 入門">ROS (Robot Operating System) 入門</a><ul class="nav">
+<li><a href="#Ubuntu環境の用意" title="Ubuntu環境の用意">Ubuntu環境の用意</a><ul class="nav">
 <li><a href="#概要" title="概要">概要</a></li>
-<li><a href="#環境構築" title="環境構築">環境構築</a><ul class="nav">
-<li><a href="#Ubuntu環境の用意" title="Ubuntu環境の用意">Ubuntu環境の用意</a></li>
-<li><a href="#ROSのインストール" title="ROSのインストール">ROSのインストール</a></li>
+<li><a href="#VMwareのインストール" title="VMwareのインストール">VMwareのインストール</a><ul class="nav">
+<li><a href="#Windowsの方" title="Windowsの方">Windowsの方</a></li>
+<li><a href="#Macの方" title="Macの方">Macの方</a></li>
 </ul>
 </li>
-<li><a href="#ROSの基本的な事項" title="ROSの基本的な事項">ROSの基本的な事項</a></li>
-<li><a href="#Rvizで可視化" title="Rvizで可視化">Rvizで可視化</a></li>
-<li><a href="#Gazeboを用いたシミュレーション" title="Gazeboを用いたシミュレーション">Gazeboを用いたシミュレーション</a></li>
+<li><a href="#VMware上でのUbuntu-2004のインストール" title="VMware上でのUbuntu 20.04のインストール">VMware上でのUbuntu 20.04のインストール</a></li>
+<li><a href="#リンク" title="リンク">リンク</a><ul class="nav">
+<li><a href="#こぼれ話" title="こぼれ話">こぼれ話</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -91,16 +72,18 @@
     </div>
     <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
         <div class="toc"><ul class="nav">
-<li><a href="#ROS-Robot-Operating-System-入門" title="ROS (Robot Operating System) 入門">ROS (Robot Operating System) 入門</a><ul class="nav">
+<li><a href="#Ubuntu環境の用意" title="Ubuntu環境の用意">Ubuntu環境の用意</a><ul class="nav">
 <li><a href="#概要" title="概要">概要</a></li>
-<li><a href="#環境構築" title="環境構築">環境構築</a><ul class="nav">
-<li><a href="#Ubuntu環境の用意" title="Ubuntu環境の用意">Ubuntu環境の用意</a></li>
-<li><a href="#ROSのインストール" title="ROSのインストール">ROSのインストール</a></li>
+<li><a href="#VMwareのインストール" title="VMwareのインストール">VMwareのインストール</a><ul class="nav">
+<li><a href="#Windowsの方" title="Windowsの方">Windowsの方</a></li>
+<li><a href="#Macの方" title="Macの方">Macの方</a></li>
 </ul>
 </li>
-<li><a href="#ROSの基本的な事項" title="ROSの基本的な事項">ROSの基本的な事項</a></li>
-<li><a href="#Rvizで可視化" title="Rvizで可視化">Rvizで可視化</a></li>
-<li><a href="#Gazeboを用いたシミュレーション" title="Gazeboを用いたシミュレーション">Gazeboを用いたシミュレーション</a></li>
+<li><a href="#VMware上でのUbuntu-2004のインストール" title="VMware上でのUbuntu 20.04のインストール">VMware上でのUbuntu 20.04のインストール</a></li>
+<li><a href="#リンク" title="リンク">リンク</a><ul class="nav">
+<li><a href="#こぼれ話" title="こぼれ話">こぼれ話</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

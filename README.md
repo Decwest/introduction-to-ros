@@ -1,7 +1,39 @@
 # ROS (Robot Operating System) 入門
+
+## 概要
+今後ROSについて自力で学習できるような環境と地力を獲得することを目標としています．
+内容は環境構築，ROSの基本的な事項，シミュレーションの実行から構成されています．
+
+ <details><summary>大まかな内容</summary><div>
+
+- ROSが動作する環境の構築
+    - Ubuntu 20.04 環境の用意
+    - ROS (noetic) のインストール
+- ROSの基本的な事項
+    - トピック通信
+    - roslaunch
+    - コマンドラインツール
+- Rvizで可視化
+    - ロボットモデルをURDF形式で記述
+    - Rvizでロボットモデルの可視化
+- Gazeboを用いたシミュレーション
+    - LiDARを1台積んだ差動二輪ロボットモデルをURDF形式で記述
+    - Gazeboでシミュレーション
+    - Rvizでロボットモデルとトピックを可視化
+
+</div></details>
+
+
 ## 環境構築
-### VMwareのインストール
-- [Windows](https://github.com/Decwest/introduction-to-ros/blob/main/environment/vmware/windows/README.md)
-- [Mac]()
-### [VMware上でのUbuntu 20.04のインストール](https://github.com/Decwest/introduction-to-ros/blob/main/environment/vmware/install-ubuntu/README.md)
-### [ROSのインストール]()
+
+### [Ubuntu環境の用意](https://github.com/Decwest/introduction-to-ros/blob/main/environment/vmware/README.md)
+Windows, Mac PCを所持している方はVMwareで仮想マシンを構築することで環境を用意します．
+
+### [ROSのインストール](https://github.com/Decwest/introduction-to-ros/blob/main/environment/ros/README.md)
+Ubuntu環境にROSをインストールします．
+
+## ROSの基本的な事項
+
+## Rvizで可視化
+
+## Gazeboを用いたシミュレーション
