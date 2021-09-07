@@ -122,7 +122,7 @@ gazebo
 なお，VMware上で実行しており，以下のようにgazeboの描画がうまくいかない（物体の輪郭が表示されない）場合，以下のコマンドを入力してください．
 （物体は赤線でくくったところをクリックして引っ張ってきています）
 
-<img src='https://raw.githubusercontent.com/Decwest/introduction-to-ros/main/environment/ros/fig/.png' width="500" >
+<img src='https://raw.githubusercontent.com/Decwest/introduction-to-ros/main/environment/ros/fig/3.png' width="500" >
 
 ```shell
 export SVGA_VGPU10=0
