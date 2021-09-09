@@ -27,12 +27,12 @@ sudo apt install ros-noetic-desktop-full -y
 
  <details><summary>各行の説明</summary><div>
 
-- [apt](https://weblabo.oscasierra.net/ubuntu-apt/)リポジトリのパッケージリストを更新
-- [curl](https://curl.se/)というツールをインストール（-yはインストール中の質問に全てYesで答えるという意味）
-- ROSのaptリポジトリのURLをaptのパッケージリストに追加
-- ROSのaptリポジトリにアクセスするためのキーを登録
-- aptリポジトリのパッケージリストを更新
-- ROSのインストール（desktop-fullはシミュレータ等含む全てをインストール）
++ [apt](https://weblabo.oscasierra.net/ubuntu-apt/)リポジトリのパッケージリストを更新
++ [curl](https://curl.se/)というツールをインストール（-yはインストール中の質問に全てYesで答えるという意味）
++ ROSのaptリポジトリのURLをaptのパッケージリストに追加
++ ROSのaptリポジトリにアクセスするためのキーを登録
++ aptリポジトリのパッケージリストを更新
++ ROSのインストール（desktop-fullはシミュレータ等含む全てをインストール）
 
 </div></details>
 
@@ -46,8 +46,8 @@ echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
 
  <details><summary>各行の説明</summary><div>
 
-- /opt/ros/noetic/setup.bashというbashスクリプトを実行 (source) （これによりROS関連のディレクトリにパスが通る）
-- "source /opt/ros/noetic/setup.bash"という記述を~/.bashrcに追記 (echo)（~/.bashrcに記述されたコマンドが毎回ターミナル起動時に実行される）
++ /opt/ros/noetic/setup.bashというbashスクリプトを実行 (source) （これによりROS関連のディレクトリにパスが通る）
++ "source /opt/ros/noetic/setup.bash"という記述を~/.bashrcに追記 (echo)（~/.bashrcに記述されたコマンドが毎回ターミナル起動時に実行される）
 
 </div></details>
 
@@ -62,8 +62,8 @@ rosdep update
 
  <details><summary>各行の説明</summary><div>
 
-- 依存関係解決やビルドに用いるツールをインストール
-- ROSパッケージの依存関係を解決するツールであるrosdepの設定（[この記事](https://qiita.com/strv/items/ccd89c55957bd8dfada0)が参考になります）
++ 依存関係解決やビルドに用いるツールをインストール
++ ROSパッケージの依存関係を解決するツールであるrosdepの設定（[この記事](https://qiita.com/strv/items/ccd89c55957bd8dfada0)が参考になります）
 
 </div></details>
 
@@ -80,16 +80,16 @@ echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 
  <details><summary>各行の説明</summary><div>
 
-- ~/catkin_ws/srcというディレクトリ（フォルダ）を作成
++ ~/catkin_ws/srcというディレクトリ（フォルダ）を作成
   - ~は[ホームディレクトリ](https://uxmilk.jp/27448)
   - ホームディレクトリにcatkin_wsというフォルダを作成し，さらにその中にsrcフォルダを作成
   - mkdirはmake directoryの略．-pオプションをつけると一気に複数階層分作成可能．
-- ~/catkin_wsに作業ディレクトリを移動
++ ~/catkin_wsに作業ディレクトリを移動
   - cdはchange directoryの略
-- ROSパッケージをビルドするコマンド
++ ROSパッケージをビルドするコマンド
   - 初回実行時はその際にいるディレクトリをワークスペースと認識．今回はその用途．
-- ~/catkin_ws/devel/setup.bashというbashスクリプトを実行（これによりROS関連のディレクトリにパスが通る）
-- "source ~/catkin_ws/devel/setup.bash"という記述を~/.bashrcに追記
++ ~/catkin_ws/devel/setup.bashというbashスクリプトを実行（これによりROS関連のディレクトリにパスが通る）
++ "source \~/catkin_ws/devel/setup.bash"という記述を~/.bashrcに追記
 
 </div></details>
 
@@ -131,9 +131,9 @@ echo "export SVGA_VGPU10=0" >> ~/.profile
 
  <details><summary>各行の説明</summary><div>
 
-- SVGA_VGPU10という名前の環境変数を宣言し，値に0を代入
++ SVGA_VGPU10という名前の環境変数を宣言し，値に0を代入
   - これによりOpenGL2が使用されるようになる（デフォルトではOpenGL3．VMwareがOpenGL3に対応していないことがある）
-- "export SVGA_VGPU10=0"という記述を~/.profileに追記
++ "export SVGA_VGPU10=0"という記述を~/.profileに追記
   - ~/.profileはログイン時に実行
   - ~/.bashrcに追記すると，仮にターミナルを介さずにGazeboが実行された場合うまくいかないため，~/.profileに追記
 

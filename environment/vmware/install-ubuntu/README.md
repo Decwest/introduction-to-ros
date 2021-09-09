@@ -5,7 +5,7 @@
 VMwareによる仮想マシンにUbuntu 20.04をインストールします．VMwareのインストールが済んでいない方は以前のページをご覧ください．
 
 ## 手順
-### Ubuntu10.04 isoイメージのダウンロード
+### Ubuntu20.04 isoイメージのダウンロード
 以下のサイトにアクセスし，Ubuntu 20.04のisoイメージ（インストーラ）をダウンロードします．
 https://jp.ubuntu.com/download
 
