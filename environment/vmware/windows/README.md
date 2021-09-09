@@ -1,4 +1,5 @@
 # WindowsにVMware WorkStation Player 16 をインストール 
+[前のページ](../../)
 
 ## 概要
 
@@ -107,3 +108,8 @@ WHPの自動インストールを選択しましょう．次へ．
 再起動しても直らない場合は，[このリンク先](https://support.microsoft.com/ja-jp/topic/%E6%9C%80%E6%96%B0%E3%81%AE%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%81%95%E3%82%8C%E3%82%8B-visual-c-%E3%81%AE%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89-2647da03-1eea-4433-9aff-95f26a218cc0)からMicrosoft Visual C++ 再頒布可能パッケージを手動でインストールしてみてください．
 
 32bit PCの場合x86，64bit PCの場合x64をインストールしましょう．
+
+## リンク
+[次のページ](../install-ubuntu/)
+
+[目次](../../../)

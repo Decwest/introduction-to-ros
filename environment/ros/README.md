@@ -1,6 +1,6 @@
 # ROS インストール
 
-[前のページ](https://github.com/Decwest/introduction-to-ros/environment/README.md)
+[前のページ](../)
 
 ## 概要
 
@@ -160,9 +160,9 @@ https://code.visualstudio.com/download
 
 
 ## リンク
-[次のページ](https://github.com/Decwest/introduction-to-ros/blob/main/environment/ros/README.md)
+[次のページ]()
 
-[目次](https://github.com/Decwest/introduction-to-ros)
+[目次](../../)
 
 
 
