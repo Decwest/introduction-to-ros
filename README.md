@@ -5,33 +5,36 @@
 
 内容は環境構築，ROSの基本的な事項，シミュレーションの実行から構成されています．
 
- <details><summary>大まかな内容</summary><div>
-<li><span>ROSが動作する環境の構築</span>
+<details><summary>大まかな内容</summary><div>
+ 
 <ul>
-<li><span>Ubuntu 20.04 環境の用意</span></li>
-<li><span>ROS (noetic) のインストール</span></li>
+    <li><span>ROSが動作する環境の構築</span>
+        <ul>
+            <li><span>Ubuntu 20.04 環境の用意</span></li>
+            <li><span>ROS (noetic) のインストール</span></li>
+        </ul>
+    </li>
+    <li><span>ROSの基本的な事項</span>
+        <ul>
+            <li><span>トピック通信</span></li>
+            <li><span>roslaunch</span></li>
+            <li><span>コマンドラインツール</span></li>
+        </ul>
+    </li>
+    <li><span>Rvizで可視化</span>
+        <ul>
+            <li><span>ロボットモデルをURDF形式で記述</span></li>
+            <li><span>Rvizでロボットモデルの可視化</span></li>
+        </ul>
+    </li>
+    <li><span>Gazeboを用いたシミュレーション</span>
+        <ul>
+            <li><span>LiDARを1台積んだ差動二輪ロボットモデルをURDF形式で記述</span></li>
+            <li><span>Gazeboでシミュレーション</span></li>
+            <li><span>Rvizでロボットモデルとトピックを可視化</span></li>
+        </ul>
+    </li>
 </ul>
-</li>
-<li><span>ROSの基本的な事項</span>
-<ul>
-<li><span>トピック通信</span></li>
-<li><span>roslaunch</span></li>
-<li><span>コマンドラインツール</span></li>
-</ul>
-</li>
-<li><span>Rvizで可視化</span>
-<ul>
-<li><span>ロボットモデルをURDF形式で記述</span></li>
-<li><span>Rvizでロボットモデルの可視化</span></li>
-</ul>
-</li>
-<li><span>Gazeboを用いたシミュレーション</span>
-<ul>
-<li><span>LiDARを1台積んだ差動二輪ロボットモデルをURDF形式で記述</span></li>
-<li><span>Gazeboでシミュレーション</span></li>
-<li><span>Rvizでロボットモデルとトピックを可視化</span></li>
-</ul>
-</li>
 
 </div></details>
 
