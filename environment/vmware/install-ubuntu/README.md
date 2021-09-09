@@ -1,5 +1,5 @@
 # VMware上でのUbuntu 20.04のインストール
-[前のページ](https://github.com/Decwest/introduction-to-ros)
+[前のページ](../../)
 
 ## 概要
 VMwareによる仮想マシンにUbuntu 20.04をインストールします．VMwareのインストールが済んでいない方は以前のページをご覧ください．
@@ -92,4 +92,4 @@ Ubuntuのデスクトップが立ち上がりました．
 ## リンク
 [次のページ]()
 
-[目次](https://github.com/Decwest/introduction-to-ros)
+[目次](../../..//

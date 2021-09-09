@@ -1,6 +1,6 @@
 # Ubuntu環境の用意
 
-[前のページ](https://github.com/Decwest/introduction-to-ros)
+[前のページ](../)
 
 ## 概要
 ROSを動かすには[Ubuntu](http://www.ubuntulinux.jp/ubuntu)というOSが必要です．
@@ -9,16 +9,16 @@ ROSを動かすには[Ubuntu](http://www.ubuntulinux.jp/ubuntu)というOSが必
 
 ## VMwareのインストール
 
-### [Windowsの方](https://github.com/Decwest/introduction-to-ros/blob/main/environment/vmware/windows/README.md)
+### [Windowsの方](./vmware/windows/)
 ### [Macの方]()
 
-## [VMware上でのUbuntu 20.04のインストール](https://github.com/Decwest/introduction-to-ros/blob/main/environment/vmware/install-ubuntu/README.md)
+## [VMware上でのUbuntu 20.04のインストール](./vmware/install-ubuntu/)
 
 
 ## リンク
-[次のページ](https://github.com/Decwest/introduction-to-ros/blob/main/environment/ros/README.md)
+[次のページ](./ros/)
 
-[目次](https://github.com/Decwest/introduction-to-ros)
+[目次](../)
 
 ---
 
