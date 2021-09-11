@@ -1,6 +1,6 @@
 # ROS (Robot Operating System) とは
 
-[前のページ](../)
+[前のページ](../../)
 
 
 
@@ -67,21 +67,27 @@ ROS (Robot Operating System) はロボットの研究開発を促進するライ
 
 
 
-ノードとトピックの名前を書く
-
-マスターによる管理も書く
+<img src='https://raw.githubusercontent.com/Decwest/introduction-to-ros/main/fundamental/about/fig/1.png' width="500" >
 
 
 
+ROS上で動く実行プロセスは**node**と呼ばれます．そしてノード同士では情報の送受信が行われています．ここで情報のことを**topic**，送信することを**publish**，受信することを**subscribe**といいます．また，topicをpublishするノードを**publisher**，subscribeするノードを**subscriber**といいます．（1つのノードは複数のtopicをpublish, subscribeできます．あるいは一つもtopicをpubsubしなくても構いません．）topicは各ノードが好きなタイミングでpublish, subscribeできます．（**非同期通信**）
 
+これらのnode間通信のとりまとめは**master**が行います．ROSインストール時に動作確認で打った`roscore`というコマンドは，このROS masterを立ち上げるコマンドです．
 
-**トピック通信**といいます．
+そして，上図のような構成の通信は**トピック通信**と呼ばれ，これがROSで最も一般的な通信方法です．ROSには他にもサービス通信，アクション通信という通信形式がありますが，興味のある方は余談をご覧ください．
+
+最後に，複数のノードやその他パラメータファイル等を含んだ機能の集合でパッケージと呼ばれる単位があります．
 
 
 
 より詳しく知りたい方は以下のリンクを読んでみてください．
 
 http://forestofazumino.web.fc2.com/ros/ros_basics.html
+
+
+
+この辺の話は手を動かしながら理解するのが一番良いです．そして，この概念を理解するのがROSの学習において一番大事な箇所といっても過言ではありません．そこで，次のページではROSパッケージを作成し，その中で簡単なpublisher, subscriberを作成してトピック通信を実際に行うことで，上記のROSの基本的な概念を理解することを目指します．
 
 
 
@@ -99,9 +105,9 @@ http://forestofazumino.web.fc2.com/ros/ros_basics.html
 
 ## リンク
 
-[次のページ](../install-ubuntu/)
+[次のページ](../topic/)
 
-[目次](../)
+[目次](../../)
 
 
 
