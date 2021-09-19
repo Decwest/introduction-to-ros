@@ -38,12 +38,12 @@ Ubuntu環境にROSをインストールします．
 ### [ROSとは](./fundamental/about/)
 ROSとはなにか簡単に説明します。
 
-### [トピック通信実践](./fundamental/about/)
+### [トピック通信実践](./fundamental/topic/)
 ROSの基本的な概念であるトピック通信について実装を通して理解します。
 
-### roslaunch
+### [roslaunch](./fundamental/roslaunch/)
 
-### コマンドラインツール
+### [コマンドラインツール](./fundamental/command/)
 
 ## Rvizで可視化
 
