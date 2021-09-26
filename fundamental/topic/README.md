@@ -274,24 +274,7 @@ rqt_graphというコマンドを打つと，ROS nodeとtopicの関係を以下�
 ## 演習問題
 ### 1. "hello world!"ではなく，"introduction-to-ros!"というデータをpublish, subscribeしてみよう
 
-<details><summary>解答例</summary><div>
-my_simple_publisher.cppの
-
-```cpp
-msg.data = "hello world!";
-```
-を
-```cpp
-msg.data = "introduction-to-ros!";
-```
-
-に変更し，msgのデータを書き換えます．
-その後
-```
-catkin build
-```
-を実行し，実行ファイルを生成し直しましょう．
-</div></details>
+[解答例](./answer/)
 
 
 ## リンク

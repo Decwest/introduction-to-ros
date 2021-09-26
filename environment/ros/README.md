@@ -151,7 +151,12 @@ https://code.visualstudio.com/download
 - Python
 - ROS
 
+## Ubuntu 日本語化
+VMwareのUbutnu簡単インストールを行うと英語版がインストールされ，キーボード配置が英字キーボードとなってしまい，日本で販売されているキーボードと若干異なってしまうのでUbuntuを日本語化します．
 
+参考
+
+[Ubuntu20.04の日本語化](https://qiita.com/yamagarsan/items/563a844993d32460bd51)
 
 ## リンク
 [次のページ](../../fundamental/about)
