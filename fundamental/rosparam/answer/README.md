@@ -34,3 +34,5 @@ int main(int argc, char **argv)
 }
 ```
 
+ros::rateの引数はdouble
+https://docs.ros.org/en/noetic/api/rostime/html/classros_1_1Rate.html#ad7ef59c5fb4edb69c6a9471987c3117d
