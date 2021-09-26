@@ -34,5 +34,9 @@ int main(int argc, char **argv)
 }
 ```
 
-ros::rateの引数はdouble
-https://docs.ros.org/en/noetic/api/rostime/html/classros_1_1Rate.html#ad7ef59c5fb4edb69c6a9471987c3117d
+"looprate"という名前のパラメータを受け取るようにしました．
+また，値格納用にint型の変数を用意しました．
+
+
+なお，[ros::Rateのコンストラクタの引数はdouble](https://docs.ros.org/en/noetic/api/rostime/html/classros_1_1Rate.html#ad7ef59c5fb4edb69c6a9471987c3117d)なので，int型ではなくfloatやdoubleでも大丈夫です．
+
