@@ -66,11 +66,17 @@ roscore
 ```
 したうえで別ターミナルで
 ```
-rosrun my_ros_tutorial my_simple_publisher pub_string:="hoge"
+rosrun my_ros_tutorial my_simple_publisher _pub_string:="hoge"
 ```
 すると出力が以下のようになるはず
 
-```
+```shell
+decwest@DESKTOP-PRFDO60:~/catkin_ws$ rosrun my_ros_tutorial my_simple_publisher _pub_string:="hoge"
+[ INFO] [1632634919.572324700]: publish: hoge
+[ INFO] [1632634919.672427100]: publish: hoge
+[ INFO] [1632634919.772410900]: publish: hoge
+[ INFO] [1632634919.872397500]: publish: hoge
+[ INFO] [1632634919.972398900]: publish: hoge
 ```
 
 ## 演習問題2
@@ -95,3 +101,6 @@ rosrun my_ros_tutorial my_simple_publisher pub_string:="hoge"
 ### パラメータサーバについて
 
 ### 名前空間について
+
+### rosrunオプション
+https://qiita.com/srs/items/0a6c7dfc2520833d6958
