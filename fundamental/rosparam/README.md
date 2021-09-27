@@ -107,6 +107,8 @@ decwest@DESKTOP-PRFDO60:~/catkin_ws$ rosrun my_ros_tutorial my_simple_publisher 
 ROSはパラメータをパラメータサーバというもので管理しています．パラメータの値と名前が保存されていて，適宜パラメータの名前と値をサーバーに登録したり，読み出したりします．
 興味のある方は[このROS Wiki](http://wiki.ros.org/Parameter%20Server)を見てください．
 
+パラメータの登録には[コマンドラインツール](http://wiki.ros.org/rosparam)，rosrunのオプション（今回扱ったやつ），launchファイルでの指定（次のページで扱う）等があります．
+
 ## Dynamic reconfigure
 ROSのパラメータは基本的には静的で，一度登録したら値の書き換えができません．しかし，dynamic reconfigureというものを用いれば途中で値の変更が可能な動的なパラメータを作成することができます．
 [こちら](https://qiita.com/srs/items/3adcc5898955a6aa1631)がわかりやすいです．

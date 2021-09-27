@@ -229,3 +229,15 @@ publisher, subscriberともに実行されますが，publisherは"hoge"とい�
 
 [目次](../../)
 
+---
+
+## 余談
+### rosparamタグ
+今回はnodeの中のparamタグでパラメータを一つづつ指定しましたが，パラメータを野良で一気に登録してそれを読み込ませる方式もあります．
+roslaunchのrosparamタグを用いるとyamlファイルで記述したパラメータ構造をlaunchファイル中でパラメータサーバに登録することができます．調整するパラメータが多くなるとパラメータだけyamlに書くということをするので割とよく使います．
+
+参考
+
+[rosparamを使う1](https://qiita.com/srs/items/b7a7abe313ad65b748f4)
+
+[rosparamを使う2](https://qiita.com/srs/items/4a658522a7f5dea5b83f)
