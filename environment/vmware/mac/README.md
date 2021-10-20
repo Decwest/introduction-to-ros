@@ -33,20 +33,25 @@ Mac OSのPCにVMWare Fusion Player 12をインストールします．
     - 規約を確認して問題なければsign up
 6. Lisence keyが表示されるので控えをとる
 7. Download PackagesのManually DownloadをクリックしVMware Fusionをダウンロード
+    - ダウンロードしたdmgファイルをクリック
 
 ### VMware Fusionのインストール
+1. 以下が表示される．ダブルクリック
 
-## トラブルシューティング
-- インストーラが起動できない
+    <img src='./fig/1.png' width="500" >
 
-    インストーラを実行すると再起動を求められることがありました．（画像が無くて申し訳ありません）
+2. Double-click to installをクリック． 出てくるウィンドウの右上にある「VMware Fuionを開く」を押す． その後パスワード等求められるので入力する．
 
-    この時は，素直に再起動をすることでインストーラが実行できるようになりました．
+3. 利用規約を読み， よければ承認する．
 
-    おそらく，[この現象](https://docs.vmware.com/jp/VMware-Tools/11.3.0/com.vmware.vsphere.vmwaretools.doc/GUID-737341FF-1AD7-4006-B904-8867FB557147.html)です．
+4. アカウント登録の際に控えたライセンスキーを入力し， 次へを押す
 
-    再起動しても直らない場合は，[このリンク先](https://support.microsoft.com/ja-jp/topic/%E6%9C%80%E6%96%B0%E3%81%AE%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%81%95%E3%82%8C%E3%82%8B-visual-c-%E3%81%AE%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89-2647da03-1eea-4433-9aff-95f26a218cc0)からMicrosoft Visual C++ 再頒布可能パッケージを手動でインストールしてみてください．
-32bit PCの場合x86，64bit PCの場合x64をインストールしましょう．
+    <img src='./fig/２.png' width="500" >
+
+5. 認証される． VMwareがコンピュータに変更を加えることを許可しますか？という旨のメッセージが表示されるので，OKを押す．以下のような画面が出るので鍵マークを押す．パスワードが求められるので入力する．すると変更できるようになるのでVMware Fusionにチェックマークを入れる．
+
+   <img src='./fig/3.png' width="500" >
+
 
 ## リンク
 [次のページ](../install-ubuntu/)
