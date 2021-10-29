@@ -1,5 +1,5 @@
 # VMware Fusion上でのUbuntu 20.04のインストール
-[前のページ](../mac/)
+[前のページ](../../mac/)
 
 [目次](../../../../)
 
@@ -13,7 +13,7 @@ VMware FUsionによる仮想マシンにUbuntu 20.04をインストールしま�
 以下のサイトにアクセスし，Ubuntu 20.04のisoイメージ（インストーラ）をダウンロードします．
 https://jp.ubuntu.com/download
 
-<img src='https://raw.githubusercontent.com/Decwest/introduction-to-ros/main/environment/vmware/install-ubuntu/fig/2.png' width="500" >
+<img src='https://raw.githubusercontent.com/Decwest/introduction-to-ros/main/environment/vmware/install-ubuntu/windows/fig/2.png' width="500" >
 
 
 ### VMwareにインストール
@@ -53,12 +53,18 @@ VMwareを開きます．先程ダウンロードしたisoイメージを「デ�
 問題がなければそのままインストールが終了します！
 
 ↓Windows版VMwareの画面ですが，インストールが終了するとこのようなデスクトップ画面になります．
+
 <img src='../windows/fig/15.png' width="500" >
 
 それでは，次のページでこのUbuntuにROSをインストールします．
 
----
-### Advanced Setting
+
+## リンク
+[次のページ](../../../ros/)
+
+[目次](../../../)
+
+## 余談
 Macはデフォルトの仮想メモリ量とCPU数で問題なさそうだったので書きませんでしたが，Windows版の記事ではGazeboシミュレータを動かすためにデフォルトから値を変更して増強する方法を載せています．
 Macでのやり方も一応記載しておきます．
 
@@ -73,10 +79,3 @@ Macでのやり方も一応記載しておきます．
 この画面で変更できます．
 <img src='./fig/9.png' width="500" >
 Windowsではメモリを4096MB，プロセッサ数を4に変更するようにしていますが，Macでは機種によってはプロセッサ数2がデフォルトで4にしようとするとwarningが出るものもあります．そのような場合は変更しなくてよいと思います．
-
----
-
-## リンク
-[次のページ](../../ros/)
-
-[目次](../../../)

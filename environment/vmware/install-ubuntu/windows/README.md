@@ -1,5 +1,5 @@
 # VMware Workstation上でのUbuntu 20.04のインストール
-[前のページ](../windows/)
+[前のページ](../../windows/)
 
 [目次](../../../../)
 
@@ -11,7 +11,7 @@ VMware Workstationによる仮想マシンにUbuntu 20.04をインストール�
 以下のサイトにアクセスし，Ubuntu 20.04のisoイメージ（インストーラ）をダウンロードします．
 https://jp.ubuntu.com/download
 
-<img src='https://raw.githubusercontent.com/Decwest/introduction-to-ros/main/environment/vmware/install-ubuntu/fig/2.png' width="500" >
+<img src='https://raw.githubusercontent.com/Decwest/introduction-to-ros/main/environment/vmware/install-ubuntu/windows/fig/2.png' width="500" >
 
 
 ### VMwareにインストール
@@ -92,6 +92,6 @@ Ubuntuのデスクトップが立ち上がりました．
 それでは，次のページでこのUbuntuにROSをインストールします．
 
 ## リンク
-[次のページ](../../ros/)
+[次のページ](../../../ros/)
 
 [目次](../../../)
