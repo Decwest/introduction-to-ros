@@ -18,7 +18,9 @@ ROSを動かすには[Ubuntu](http://www.ubuntulinux.jp/ubuntu)というOSが必
 [Macの方](./vmware/mac)
 
 ## VMware上でのUbuntu 20.04のインストール
-[VMware上でのUbuntu 20.04のインストール](./vmware/install-ubuntu/)
+[Windowsの方](./vmware/install-ubuntu/windows)
+
+[Macの方](./vmware/install-ubuntu/mac)
 
 
 ## リンク

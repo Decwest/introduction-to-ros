@@ -1,10 +1,10 @@
-# VMware上でのUbuntu 20.04のインストール
-[前のページ](../../)
+# VMware Workstation上でのUbuntu 20.04のインストール
+[前のページ](../windows/)
 
-[目次](../../../)
+[目次](../../../../)
 
 ## 概要
-VMwareによる仮想マシンにUbuntu 20.04をインストールします．VMwareのインストールが済んでいない方は以前のページをご覧ください．
+VMware Workstationによる仮想マシンにUbuntu 20.04をインストールします．VMware Workstationのインストールが済んでいない方は以前のページをご覧ください．
 
 ## 手順
 ### Ubuntu20.04 isoイメージのダウンロード
