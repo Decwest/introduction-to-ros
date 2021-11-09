@@ -1,152 +1,373 @@
-# Rviz とは
+# ロボットモデルの作成：URDF
 
-[前のページ](../../)
+[前のページ](../rviz/)
 
 
 
 ## 概要
 
-Rvizとは何かについて，厳密性を排除し簡単な説明を試みました．
+本記事ではロボットモデルの作成方法について説明します．
 
-一次情報に触れたい方は[ROS WikiのIntroduction](http://wiki.ros.org/ROS/Introduction)や[ros.orgでのROSの紹介](https://www.ros.org/about-ros/)を読んでみてください．
+ロボットモデルはURDF (Unified Robotics Description Format) という形式で記述されます．
 
-また，ここに記載した内容はROSに触れているうちに次第に分かってくるので，軽く読み飛ばす程度で結構です．
-
-
-
-## ROSとは
-
-ROS (Robot Operating System) はロボットの研究開発を促進するライブラリやツールのセットを提供します．
-
-ロボット制御のコードを書くにあたって利用できると便利なもの，くらいに捉えてもらえれば大丈夫かと思います．
-
-以下にどのように便利なのかを記述していきます．まずはROSが掲げる目標について記述します．
+まず，URDFの考え方について記述します．
+次に，コードの書式を実際にモデルを作成しながら確認します．
 
 
+## URDFの考え方
 
-## ROSの目標
+<img src='./fig/link.png' width="300" >
 
-ロボットの研究開発において，コードの「再利用」を支援すること
+図1
 
-> the primary goal of ROS is to support code *reuse* in robotics research and development. [1]
+<img src='./fig/graphiz.png' width="300" >
 
+図2
 
+[ROS wiki](http://wiki.ros.org/ja/urdf/Tutorials/Create%20your%20own%20urdf%20file)より引用
 
-ロボットの研究開発にはセンサ情報取得（知覚），知能設計（計画），アクチュエータ駆動（制御）と様々な要素があり，それぞれにドライバやコードの開発が必要です．また，可視化ツールやシミュレータ等も開発しようとするとさらに作業量が増えます．
+URDFによるモデルの記述は，**リンク**と**ジョイント**に分けて考えます．
 
-これらを全部一からやろうとすると，一番研究開発でやりたい部分に到達するまでに大変時間がかかります．
+- リンク
 
-そこで，ROSでは独自のフレームワークを定め，ROSの下で開発されたコードは容易に再利用可能，各自のシステムに組み込めるようにすることで，各自が自身のロボット研究開発に注力できるよう支援しています．また，専門分野の異なる各自がそれぞれROSの下で作成したコードを組み合わせることでロボットシステムを構成するという共同研究開発の促進も理念に掲げています．
+    ロボットを構成するパーツです．ロボットをいくつかのパーツに分割し，それらを接続することでロボットモデルを作成します．パーツは**直方体**，**円柱**，**球**の基本図形，およびCADの3Dモデル (Collada, STL) で表現できます．今回は基本図形のみ用います．
 
-以下にROSの特徴をざっくりと記述します．
+- ジョイント
 
-
-
-## ROSの特徴
-
-- オープンソース
-  - 開発がオープンソースで行われています（[例](https://github.com/ros)）．誰でも閲覧，ダウンロード，コミット可能です．そして，多くの方が自分で作成したROSコードをGitHub等で公開しています．私も，自分で作成したROSコードを公開できる範囲で公開したり，ROSコミュニティへの貢献を行っていけると良いと思っています．（したい）
-
-- 分散アーキテクチャ
-  - ROS上で動く実行プロセスは「ノード」と呼ばれ，各ノードには情報の入力と出力があります（どちらかでもよい）．複数のノードが結合し，互いに情報を授受することでロボットシステムを成します．この構造により，ノードを置き換えたり入出力の接続の仕方を変更すれば，自分のシステムにネット上に公開されたコードで記述されたノードを組み込むことができます．詳細は後述します．
-- 多数のプログラミング言語をサポート
-  - メインで[C++](http://wiki.ros.org/roscpp), [Python](http://wiki.ros.org/rospy)に対応しており，各ノードごとに別々の言語で記述できます．[Lisp](http://wiki.ros.org/roslisp)や[Javascript](http://wiki.ros.org/roslibjs)などもあります．
-
-- コミュニティが活発
-  - ROS専用の知恵袋があります ([ROS Answers](https://answers.ros.org/questions/))． また，[ROSCon](https://roscon.ros.org/2021/)や[ROSCon JP](https://roscon.jp/)といった会議や，[ROS ユーザー会](https://rosjp.connpass.com/)等の活動も活発に行われています．
+    リンク同士を接続するものです．親リンク，子リンクを決め，親リンクから見た子リンクの位置を記述することでジョイントを表現します．図1と図2を比較し，親リンクの座標系で子リンクの座標系の位置が表示されている感覚をつかんでください．
 
 
+## URDFでモデル作成
+---
+注意：本記事では，混乱を避けるためこれから作成したいモデルに必要最小限なもののみ紹介します．
+それ以外にも詳しく知りたい方は以下をご覧ください．
 
-次に，分散アーキテクチャに関連して，ROSのアーキテクチャについて説明します．
+[link elements](http://wiki.ros.org/urdf/XML/link)
 
+[joint elements](http://wiki.ros.org/urdf/XML/joint)
 
+---
 
-## ROSのアーキテクチャ
+本講座では，最終的に以下のルンバのようなモデルを作成することを目指します．このモデルを作成するには，円柱と球のリンクを作成し，ジョイントで適切に接続することが必要です．また，接続には，車体とキャスター間のような固定のものと，車体と車輪の間のような回転するものがあります．
 
-先程述べたように，ROSは複数のノードが情報を授受しあうことでロボットシステムを構築します．ここでは，その通信方式についてとROSの基本的な用語について説明します．
+そこで，本記事では
+- リンク
+  - 円柱
+  - 球
+- ジョイント
+  - 固定
+  - 回転
 
+の作成について練習します．
 
+<img src='./fig/2.png' width="200" >
+<img src='./fig/3.png' width="200" >
 
-<img src='https://raw.githubusercontent.com/Decwest/introduction-to-ros/main/fundamental/about/fig/1.png' width="500" >
+## 1. 円柱と球リンクの作成および固定ジョイント
+以下に示す銀魂のジャスタウェイ的なものの作成を通して円柱，球リンクおよび固定ジョイントの作成方法を学びます．ただし，手は省略します．
 
+<img src='./fig/1.jpg' width="200" >
 
+[ジャスタウェイ](https://dic.nicovideo.jp/a/%E3%82%B8%E3%83%A3%E3%82%B9%E3%82%BF%E3%82%A6%E3%82%A7%E3%82%A4)
 
-ROS上で動く実行プロセスは**node**と呼ばれます．そしてノード同士では情報の送受信が行われています．ここで情報のことを**topic**，送信することを**publish**，受信することを**subscribe**といいます．また，topicをpublishするノードを**publisher**，subscribeするノードを**subscriber**といいます．（1つのノードは複数のtopicをpublish, subscribeできます．あるいは一つもtopicをpubsubしなくても構いません．）topicは各ノードが好きなタイミングでpublish, subscribeできます．（**非同期通信**）
+### 作成するリンク
+- ロボットの原点を表すbase_link
+- 半径20cm, 高さ60cmの円柱body_link
+- 半径15cmの球head_link
 
-これらのnode間通信のとりまとめは**master**が行います．ROSインストール時に動作確認で打った`roscore`というコマンドは，このROS masterを立ち上げるコマンドです．
+### 作成するジョイント
+- base_linkから上に30cmのところにbody_linkがくるように記述された固定ジョイント
+- body_linkの重心から上に30cmのところにhead_linkがくるように記述された固定ジョイント
 
-そして，上図のような構成の通信は**トピック通信**と呼ばれ，これがROSで最も一般的な通信方法です．ROSには他にもサービス通信，アクション通信という通信形式がありますが，興味のある方は余談をご覧ください．
+### URDF作成準備
+以下をインストール
+```shell
+sudo apt update
+sudo apt-get install -y liburdfdom-tools ros-noetic-urdf-tutorial ros-noetic-joint-state-publisher-gui
+```
 
-最後に，複数のノードやその他パラメータファイル等を含んだ機能の集合でパッケージと呼ばれる単位があります．
+### パッケージ作成
+```
+cd ~/catkin_ws/src/
+catkin_create_pkg my_urdf_tutorial std_msgs rospy roscpp
+```
 
+### URDFファイル作成
+my_urdf_tutorial/urdfディレクトリ内に以下を作成
 
+justaway.urdf
 
-より詳しく知りたい方は以下のリンクを読んでみてください．
+```xml
+<robot name="justaway">
 
-http://forestofazumino.web.fc2.com/ros/ros_basics.html
+  <link name="base_link"/>
 
+  <link name="body_link">
+    <visual>
+      <geometry>
+        <cylinder radius="0.2" length="0.6"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="red">
+        <color rgba="1.0 0.0 0.0 2.0"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.2" length="0.6"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
+  </link>
 
+  <link name="head_link">
+    <visual>
+      <geometry>
+        <sphere radius="0.15"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="red">
+        <color rgba="1.0 0.0 0.0 2.0"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <sphere radius="0.15"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
+  </link>
+  
+  <joint name="body_joint" type="fixed">
+    <parent link="base_link"/>
+    <child  link="body_link"/>
+    <origin xyz="0 0 0.30" rpy="0 0 0" />
+  </joint>
 
-この辺の話は手を動かしながら理解するのが一番良いです．そして，この概念を理解するのがROSの学習において一番大事な箇所といっても過言ではありません．そこで，次のページではROSパッケージを作成し，その中で簡単なpublisher, subscriberを作成してトピック通信を実際に行うことで，上記のROSの基本的な概念を理解することを目指します．
+  <joint name="head_joint" type="fixed">
+    <parent link="body_link"/>
+    <child  link="head_link"/>
+    <origin xyz="0 0 0.30" rpy="0 0 0" />
+  </joint>
 
+</robot>
+```
 
+### 説明
+roslaunchと同様にXML表記です．
+#### `<robot>`タグ
+urdfに必須で，ロボットの名前を記述します
+#### `<link>`タグ
+- base_link
 
-## 参考文献
+    base_linkはいわばロボットモデルの原点で，肉を持たない空のリンクです．ロボットにはたいていこの名前のリンクを付けます．（実際はbase_footprintとか色々な流儀があります）
+    以降のbody_link, head_link等の位置はbase_linkを基準に記述します．
 
-- http://wiki.ros.org/ROS/Introduction
+- body_link
+```xml
+  <link name="body_link">
+    <visual>
+      <geometry>
+        <cylinder radius="0.2" length="0.6"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="red">
+        <color rgba="1.0 0.0 0.0 2.0"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.2" length="0.6"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
+  </link>
+```
+大まかに構造を述べると，次のようになっています
+- link：リンクの名前
+    - visual：見た目に関する記述
+        - geometry：基本図形の形状
+        - origin：重心の座標
+        - material：色など
+    - collision：衝突判定に関する記述
+        - geometry：基本図形の形状
+        - origin：重心の座標
 
-- https://www.ros.org/about-ros/
+visualとcollisionは基本同じ寸法でよいですが，見た目より衝突判定を緩くしたい場合はcollisionの寸法を少し小さく書いたりします．
 
-- ROSロボットプログラミングバイブル
+- geometryについて
+    - 球の場合：`<sphere radius="球の半径"/>`
+    - 円柱の場合：`<cylinder radius="半径" length="長さ"/>`
+    - 直方体の場合：`<box size="縦 横 高さ"/>`
+    - 単位はメートルです．
+- originについて
+    - 座標系からの相対位置
+    - x, y, z, roll, pitch, yaw
+    - originが0の時は，各リンクの重心が座標原点となります．基本的には，originを0とし，ジョイントで各リンクの重心の相対位置関係を記述することが多いです．
+- colorについて
+    - `<color rgba="r g b alpha"/>`
+    - alpha値1で不透明のはずですが，なぜか2くらいにしないと不透明にならないので今回は2にしています，
 
-- トランジスタ技術2020年9月号
+head_linkもbody_linkと同様の表記なので，上記を見て解読してみましょう．
 
+#### `<joint>`タグ
+```xml
+  <joint name="body_joint" type="fixed">
+    <parent link="base_link"/>
+    <child  link="body_link"/>
+    <origin xyz="0 0 0.30" rpy="0 0 0" />
+  </joint>
 
+  <joint name="head_joint" type="fixed">
+    <parent link="body_link"/>
+    <child  link="head_link"/>
+    <origin xyz="0 0 0.30" rpy="0 0 0" />
+  </joint>
+```
+- joint：ジョイントの名前
+    - parent：親リンクの名前
+    - child：子リンクの名前
+    - origin：親リンクの座標系から見た子リンクの位置．すなわち，親リンクの重心から見た子リンクの重心の位置です．
+
+今回は，base_linkから真上に30cmのところにbody_linkの重心．
+body_linkの重心から真上に30cmのところにhead_linkの重心があるため，上記のようなoriginになります．
+
+### 確認
+#### 文法チェック
+```
+cd ~/catkin_ws/src/my_urdf_tutorial/urdf
+check_urdf justaway.urdf
+```
+urdfの存在するディレクトリで`check_urdf urdfファイル`とすると文法チェックできます．
+うまくいくと以下のように表示されます．
+```
+robot name is: justaway
+---------- Successfully Parsed XML ---------------
+root Link: base_link has 1 child(ren)
+    child(1):  body_link
+        child(1):  head_link
+```
+#### ロボットモデル可視化
+```
+roslaunch urdf_tutorial display.launch model:=justaway.urdf
+```
+先程aptで入れたurdf_tutorialパッケージのlaunchを用いることでurdfモデルの可視化ができます．model:=urdfファイルとして引数を与えます．
+
+成功すると以下のように表示されます．
+
+<img src='./fig/justaway.png' width="500" >
+<img src='./fig/1.jpg' width="200" >
+
+## 2. 回転ジョイントの作成
+ジャスタウェイの頭を回転させてもよくわからないので，以下のように直方体二つを回転ジョイントで接続したタケコプター的なものを作成します．（タケコプターというよりTだけど）
+
+<img src='./fig/4.png' width="500" >
+
+### 作成するリンク
+- base_link
+- 10cm * 10cm * 30cmの直方体body_link1：黄
+- 30cm * 10cm * 10cmの直方体body_link2：黄
+
+### 作成するジョイント
+- base_linkから上に15cmのところにbody_link1が来るように記述された固定ジョイント
+- body_link1の重心から上に20cmのところにbody_link2がくるように記述された回転ジョイント
+
+### コード
+
+takecopter.urdf
+
+```xml
+<robot name="takecopter">
+
+  <link name="base_link"/>
+
+  <link name="body_link1">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.3"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="yellow">
+        <color rgba="1.0 1.0 0.0 2.0"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.1 0.1 0.3"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
+  </link>
+
+  <link name="body_link2">
+    <visual>
+      <geometry>
+        <box size="0.3 0.1 0.1"/>
+      </geometry>
+      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+      <material name="yellow">
+        <color rgba="1.0 1.0 0.0 2.0"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.3 0.1 0.1"/>
+      </geometry>
+      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+    </collision>
+  </link>
+  
+  <joint name="body1_joint" type="fixed">
+    <parent link="base_link"/>
+    <child  link="body_link1"/>
+    <origin xyz="0 0 0.15" rpy="0 0 0" />
+  </joint>
+
+  <joint name="body2_joint" type="continuous">
+    <parent link="body_link1"/>
+    <child  link="body_link2"/>
+    <origin xyz="0 0.0 0.20" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit effort="0" velocity="0"/>
+  </joint>
+
+</robot>
+```
+回転ジョイント以外一緒なので，回転ジョイントについてのみ記述します．
+```
+  <joint name="body2_joint" type="continuous">
+    <parent link="body_link1"/>
+    <child  link="body_link2"/>
+    <origin xyz="0 0.0 0.20" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit effort="0" velocity="0"/>
+  </joint>
+```
+- `<axis>`タグ
+    - x軸，y軸，z軸周り回転の単位ベクトルです．今回はプロペラみたいに横に回したいということで，これは上向きのz軸周り回転なので`<axis xyz="0 0 1" />`としています．なお，反時計回りが正で，逆回りにしたいときは-1とすればよいです．
+    - 実際は，一発で所望の回転軸を当てるのは割と難しいので，適当に色々試してあったら採用みたいな感じですかね
+- limitタグ
+    - 回転ジョイントには必須の項目です．effortとvelocityは関節が出せる最大の速度とトルクを表し，今後Gazeboという物理シミュレータを使う上で影響してきます．今回は関係ないので適当に0にしています．
+
+#### ロボットモデル可視化
+```
+roslaunch urdf_tutorial display.launch model:=takecopter.urdf
+```
+
+付属のGUIで色々角度を変えることができます．
+
+<img src='./fig/5.png' width="500" >
+
+次のページで，本記事で練習したことを活かしてルンバのモデリングを演習形式で行います！
 
 ## リンク
 
-[次のページ](../topic/)
+[次のページ](../practice/)
 
 [目次](../../)
-
 
 
 ---
 
 ## 余談
-
-### ROSの学習において参考になったサイト，書籍
-
-- [ROS Wiki](http://wiki.ros.org/ROS/Introduction)
-  - 公式Wiki
-  
-- [ROS講座](https://qiita.com/srs/items/5f44440afea0eb616b4a)
-  - 私はこのサイトを中心に勉強しました．
-
-- [ROSロボットプログラミングバイブル](https://www.ohmsha.co.jp/book/9784274221965/)
-  - 全編日本語でかなり詳しいところまで書かれています．特にnavigation stackやSLAMの章は重宝しました．
-  - 慶應の学生はネット上で無料で読めます（[リンク](https://search.lib.keio.ac.jp/permalink/81SOKEI_KEIO/188bto4/alma9926302289904034)）
-  
-- （コード）
-  - やっぱり自分の目で挙動を詳しく確認したいというときはコードを読み込むのが一番良いです．（コードに従って動いているので）
-  - ROSはオープンソース推奨なので多くの場合コードが読めます．
-
-
-
-### 英語でググろう
-
-ROSに関する情報は英語のほうが圧倒的に多いので，エラーなどが出て困った際は英語でググると早く解決策が見つかるかもしれません．（大体ROS Answersで同様の悩みを抱えている人が見つかります）
-
-
-
-### 通信方式
-
-ROSには先程説明したトピック通信の他には**サービス通信**，**アクション通信**という方式が存在します．
-
-- サービス通信
-  - 常に垂れ流すトピック通信とは異なり，サービスクライアントと呼ばれるノードがサービスメッセージを投げ，サービスサーバーと呼ばれるノードがそれを受け取るとサービスサーバーで処理が開始する．処理が終わるとサービスクライアントにメッセージを送信する．
-- アクション通信
-  - サービス通信ではサーバーは終了時にメッセージを送信したが，アクション通信では処理実行中の途中結果をサーバーがトピックとして逐一publishする．処理が終わるとクライアントにメッセージを送信するのは同じ．
-
-興味のある方は調べてみてください．
-
+### base_linkについて
