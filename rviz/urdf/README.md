@@ -81,13 +81,13 @@ URDFによるモデルの記述は，**リンク**と**ジョイント**に分�
 
 ### URDF作成準備
 以下をインストール
-```shell
+```bash
 sudo apt update
 sudo apt-get install -y liburdfdom-tools ros-noetic-urdf-tutorial ros-noetic-joint-state-publisher-gui
 ```
 
 ### パッケージ作成
-```
+```bash
 cd ~/catkin_ws/src/
 catkin_create_pkg my_urdf_tutorial std_msgs rospy roscpp
 ```
@@ -161,7 +161,7 @@ urdfに必須で，ロボットの名前を記述します
 - base_link
 
     base_linkはいわばロボットモデルの原点で，肉を持たない空のリンクです．ロボットにはたいていこの名前のリンクを付けます．（実際はbase_footprintとか色々な流儀があります）
-    以降のbody_link, head_link等の位置はbase_linkを基準に記述します．
+    以降のbody_linkの位置はbase_linkを基準に記述します．head_linkの位置は今回はbody_linkを基準に記述しますが，base_linkを基準としてもかまいません．
 
 - body_link
 ```xml
@@ -334,7 +334,7 @@ takecopter.urdf
 </robot>
 ```
 回転ジョイント以外一緒なので，回転ジョイントについてのみ記述します．
-```
+```xml
   <joint name="body2_joint" type="continuous">
     <parent link="body_link1"/>
     <child  link="body_link2"/>
@@ -350,7 +350,7 @@ takecopter.urdf
     - 回転ジョイントには必須の項目です．effortとvelocityは関節が出せる最大の速度とトルクを表し，今後Gazeboという物理シミュレータを使う上で影響してきます．今回は関係ないので適当に0にしています．
 
 #### ロボットモデル可視化
-```
+```bash
 roslaunch urdf_tutorial display.launch model:=takecopter.urdf
 ```
 
