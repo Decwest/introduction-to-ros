@@ -76,8 +76,8 @@ URDFによるモデルの記述は，**リンク**と**ジョイント**に分�
 - 半径15cmの球head_link
 
 ### 作成するジョイント
-- base_linkから上に30cmのところにbody_linkがくるように記述された固定ジョイント
-- body_linkの重心から上に30cmのところにhead_linkがくるように記述された固定ジョイント
+- base_linkから上に30cmのところにbody_linkがくるように記述された固定ジョイントbody_joint
+- body_linkの重心から上に30cmのところにhead_linkがくるように記述された固定ジョイントhead_joint
 
 ### URDF作成準備
 以下をインストール
@@ -234,7 +234,7 @@ body_linkの重心から真上に30cmのところにhead_linkの重心がある�
 
 ### 確認
 #### 文法チェック
-```
+```bash
 cd ~/catkin_ws/src/my_urdf_tutorial/urdf
 check_urdf justaway.urdf
 ```
@@ -248,7 +248,7 @@ root Link: base_link has 1 child(ren)
         child(1):  head_link
 ```
 #### ロボットモデル可視化
-```
+```bash
 roslaunch urdf_tutorial display.launch model:=justaway.urdf
 ```
 先程aptで入れたurdf_tutorialパッケージのlaunchを用いることでurdfモデルの可視化ができます．model:=urdfファイルとして引数を与えます．
@@ -259,74 +259,78 @@ roslaunch urdf_tutorial display.launch model:=justaway.urdf
 <img src='./fig/1.jpg' width="200" >
 
 ## 2. 回転ジョイントの作成
-ジャスタウェイの頭を回転させてもよくわからないので，以下のように直方体二つを回転ジョイントで接続したタケコプター的なものを作成します．（タケコプターというよりTだけど）
+ジャスタウェイの頭を回転させてもよくわからないので，以下のように直方体に円柱を回転ジョイントで接続した手持ち扇風機的なものを作成します．
 
-<img src='./fig/4.png' width="500" >
+<img src='./fig/5.png' width="500" >
+
+<img src='./fig/4.png' width="200" >
+
+[モノタロウ](https://www.monotaro.com/p/5567/2838/?utm_id=g_pla&utm_medium=cpc&utm_source=Adwords&utm_campaign=246-833-4061_6466659573&utm_content=77481174716&utm_term=_380686959515__aud-536766637816:pla-879343685468&gclid=Cj0KCQiA-K2MBhC-ARIsAMtLKRsmYchzOtYxhPVyo9i_GEImy8krLFXqtiBWSH5pcB3z2mUJlHU2q9waAlN6EALw_wcB)
 
 ### 作成するリンク
 - base_link
-- 10cm * 10cm * 30cmの直方体body_link1：黄
-- 30cm * 10cm * 10cmの直方体body_link2：黄
+- 4cm * 2cm * 20cmの直方体body_link
+- 半径5cm, 高さ2cmの円柱fan_link
 
 ### 作成するジョイント
-- base_linkから上に15cmのところにbody_link1が来るように記述された固定ジョイント
-- body_link1の重心から上に20cmのところにbody_link2がくるように記述された回転ジョイント
+- base_linkから上に10cmのところにbody_linkが来るように記述された固定ジョイントbody_joint
+- body_linkの重心から上に6cm, 前に2cmのところにfan_linkがくるように記述された回転ジョイントfan_joint
 
 ### コード
 
-takecopter.urdf
+handyfan.urdf
 
 ```xml
-<robot name="takecopter">
+<robot name="handyfan">
 
   <link name="base_link"/>
 
-  <link name="body_link1">
+  <link name="body_link">
     <visual>
       <geometry>
-        <box size="0.1 0.1 0.3"/>
+        <box size="0.04 0.02 0.20"/>
       </geometry>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <material name="yellow">
-        <color rgba="1.0 1.0 0.0 2.0"/>
+      <material name="white">
+        <color rgba="1.0 1.0 1.0 2.0"/>
       </material>
     </visual>
     <collision>
       <geometry>
-        <box size="0.1 0.1 0.3"/>
+        <box size="0.04 0.02 0.20"/>
       </geometry>
       <origin xyz="0 0 0" rpy="0 0 0"/>
     </collision>
   </link>
 
-  <link name="body_link2">
+  <link name="fan_link">
     <visual>
       <geometry>
-        <box size="0.3 0.1 0.1"/>
+        <cylinder radius="0.05" length="0.02"/>
       </geometry>
-      <origin xyz="0 0 0.0" rpy="0 0 0"/>
-      <material name="yellow">
-        <color rgba="1.0 1.0 0.0 2.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="white">
+        <color rgba="1.0 1.0 1.0 2.0"/>
       </material>
     </visual>
     <collision>
       <geometry>
-        <box size="0.3 0.1 0.1"/>
+        <cylinder radius="0.05" length="0.02"/>
       </geometry>
-      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
     </collision>
   </link>
   
-  <joint name="body1_joint" type="fixed">
+  <joint name="body_joint" type="fixed">
     <parent link="base_link"/>
-    <child  link="body_link1"/>
-    <origin xyz="0 0 0.15" rpy="0 0 0" />
+    <child  link="body_link"/>
+    <origin xyz="0 0 0.10" rpy="0 0 0" />
   </joint>
 
-  <joint name="body2_joint" type="continuous">
-    <parent link="body_link1"/>
-    <child  link="body_link2"/>
-    <origin xyz="0 0.0 0.20" rpy="0 0 0" />
+  <joint name="fan_joint" type="continuous">
+    <parent link="body_link"/>
+    <child  link="fan_link"/>
+    <origin xyz="0.0 0.02 0.06" rpy="1.570796326794897 0 0" />
     <axis xyz="0 0 1" />
     <limit effort="0" velocity="0"/>
   </joint>
@@ -335,14 +339,16 @@ takecopter.urdf
 ```
 回転ジョイント以外一緒なので，回転ジョイントについてのみ記述します．
 ```xml
-  <joint name="body2_joint" type="continuous">
-    <parent link="body_link1"/>
-    <child  link="body_link2"/>
-    <origin xyz="0 0.0 0.20" rpy="0 0 0" />
+  <joint name="fan_joint" type="continuous">
+    <parent link="body_link"/>
+    <child  link="fan_link"/>
+    <origin xyz="0.0 0.02 0.06" rpy="1.570796326794897 0 0" />
     <axis xyz="0 0 1" />
     <limit effort="0" velocity="0"/>
   </joint>
 ```
+- `<origin>`タグ
+    - xyzについては先ほどと同様ですが，今回はrpyにも値が入っています．デフォルトだと (originが0だと) 円柱は縦向きなので，横向きになるようにfan_linkの座標系をx軸を中心に90度回転させています．
 - `<axis>`タグ
     - x軸，y軸，z軸周り回転の単位ベクトルです．今回はプロペラみたいに横に回したいということで，これは上向きのz軸周り回転なので`<axis xyz="0 0 1" />`としています．なお，反時計回りが正で，逆回りにしたいときは-1とすればよいです．
     - 実際は，一発で所望の回転軸を当てるのは割と難しいので，適当に色々試してあったら採用みたいな感じですかね
@@ -351,12 +357,12 @@ takecopter.urdf
 
 #### ロボットモデル可視化
 ```bash
-roslaunch urdf_tutorial display.launch model:=takecopter.urdf
+roslaunch urdf_tutorial display.launch model:=handyfan.urdf
 ```
 
 付属のGUIで色々角度を変えることができます．
 
-<img src='./fig/5.png' width="500" >
+<img src='./fig/6.png' width="500" >
 
 次のページで，本記事で練習したことを活かしてルンバのモデリングを演習形式で行います！
 
