@@ -82,7 +82,7 @@ roomba_sim.urdfの末尾に以下を追記します．Gazebo Tutorialからコ�
 
 ## リンク
 
-[次のページ](../sensor/)
+[次のページ](../spawn/)
 
 [目次](../../)
 

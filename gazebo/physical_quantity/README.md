@@ -172,7 +172,7 @@ massについては，今回は車輪の質量を0.1kgとします．
     <origin xyz="0 -0.158 -0.01" rpy="1.570796326794897 0 0" />
     <axis xyz="0 0 -1" />
     <limit effort="10" velocity="10" />
-    <joint_properties damping="0.1" friction="0.0" />
+    <joint_properties damping="0.0" friction="0.0" />
   </joint>
 ```
 
@@ -184,7 +184,7 @@ massについては，今回は車輪の質量を0.1kgとします．
 ### 減衰係数，摩擦
 `<joint_properties damping="減衰係数[N･m･s/rad]" friction="摩擦係数" />`
 
-今回は適当に粘性係数を0.1, 摩擦係数を0にしています．
+今回は適当に粘性係数も摩擦係数も0にしています．
 
 ## 全体像
 以上の物理量を他のリンク，ジョイントにも追加すると以下のようになります．
@@ -213,7 +213,7 @@ massについては，今回は車輪の質量を0.1kgとします．
 
 ### wheel_joint_right, wheel_joint_left
 - 出力最大トルク10 N･m，速度10 m/s
-- 減衰係数0.1 N･m･s/rad，摩擦係数0.0
+- 減衰係数0.0 N･m･s/rad，摩擦係数0.0
 
 ```xml
 <robot name="roomba_sim">
@@ -409,7 +409,7 @@ massについては，今回は車輪の質量を0.1kgとします．
     <origin xyz="0 -0.158 -0.01" rpy="1.570796326794897 0 0" />
     <axis xyz="0 0 -1" />
     <limit effort="10" velocity="10" />
-    <joint_properties damping="0.1" friction="0.0" />
+    <joint_properties damping="0.0" friction="0.0" />
   </joint>
 
   <joint name="wheel_joint_left" type="continuous">
@@ -418,7 +418,7 @@ massについては，今回は車輪の質量を0.1kgとします．
     <origin xyz="0 0.158 -0.01" rpy="1.570796326794897 0 0" />
     <axis xyz="0 0 -1" />
     <limit effort="10" velocity="10" />
-    <joint_properties damping="0.1" friction="0.0" />
+    <joint_properties damping="0.0" friction="0.0" />
   </joint>
 
 </robot>
