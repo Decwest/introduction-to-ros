@@ -216,7 +216,7 @@ $I=\dfrac{2}{5}MR^2$
 - 減衰係数0.1 N･m･s/rad，摩擦係数0.0
 
 ```xml
-<robot name="roomba">
+<robot name="roomba_sim">
 
   <link name="base_link"/>
 
