@@ -8,7 +8,7 @@
     ```
 
 1. 円柱でルンバの車体body_linkを作成する
-    - 半径150mm, 高さ72mmの円柱body_link
+    - 半径150mm, 高さ72mmの円柱body_link：白色
 
     ```xml
     <link name="body_link">
@@ -17,15 +17,15 @@
             <cylinder radius="0.15" length="0.072"/>
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0"/>
-        <material name="red">
-            <color rgba="1.0 0.0 0.0 2.0"/>
+        <material name="white">
+            <color rgba="1.0 1.0 1.0 2.0"/>
         </material>
         </visual>
     </link>
     ```
 
 1. 球でルンバのキャスターball_linkを作成する
-    - 半径10mmのキャスターball_link_front, ball_link_back
+    - 半径10mmのキャスターball_link_front, ball_link_back：白色
 
     ```xml
     <link name="ball_link_front">
@@ -34,8 +34,8 @@
             <sphere radius="0.01"/>
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0"/>
-        <material name="red">
-            <color rgba="1.0 0.0 0.0 2.0"/>
+        <material name="white">
+            <color rgba="1.0 1.0 1.0 2.0"/>
         </material>
         </visual>
     </link>
@@ -46,15 +46,15 @@
             <sphere radius="0.01"/>
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0"/>
-        <material name="red">
-            <color rgba="1.0 0.0 0.0 2.0"/>
+        <material name="white">
+            <color rgba="1.0 1.0 1.0 2.0"/>
         </material>
         </visual>
     </link>
     ```
 
 1. 円柱でルンバの車輪wheel_linkを作成する
-    - 半径36mm, 高さ16mmの円柱wheel_link_right, wheel_link_left
+    - 半径36mm, 高さ16mmの円柱wheel_link_right, wheel_link_left：黒色
 
     ```xml
     <link name="wheel_link_right">
@@ -63,8 +63,8 @@
             <cylinder radius="0.036" length="0.016"/>
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0"/>
-        <material name="red">
-            <color rgba="1.0 0.0 0.0 2.0"/>
+        <material name="black">
+            <color rgba="0.0 0.0 0.0 2.0"/>
         </material>
         </visual>
     </link>
@@ -75,8 +75,8 @@
             <cylinder radius="0.036" length="0.016"/>
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0"/>
-        <material name="red">
-            <color rgba="1.0 0.0 0.0 2.0"/>
+        <material name="black">
+            <color rgba="0.0 0.0 0.0 2.0"/>
         </material>
         </visual>
     </link>
@@ -141,8 +141,8 @@
         <cylinder radius="0.15" length="0.072"/>
       </geometry>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <material name="red">
-        <color rgba="1.0 0.0 0.0 2.0"/>
+      <material name="white">
+        <color rgba="1.0 1.0 1.0 2.0"/>
       </material>
     </visual>
   </link>
@@ -153,8 +153,8 @@
         <sphere radius="0.01"/>
       </geometry>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <material name="red">
-        <color rgba="1.0 0.0 0.0 2.0"/>
+      <material name="white">
+        <color rgba="1.0 1.0 1.0 2.0"/>
       </material>
     </visual>
   </link>
@@ -165,8 +165,8 @@
         <sphere radius="0.01"/>
       </geometry>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <material name="red">
-        <color rgba="1.0 0.0 0.0 2.0"/>
+      <material name="white">
+        <color rgba="1.0 1.0 1.0 2.0"/>
       </material>
     </visual>
   </link>
@@ -177,8 +177,8 @@
         <cylinder radius="0.036" length="0.016"/>
       </geometry>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <material name="red">
-        <color rgba="1.0 0.0 0.0 2.0"/>
+      <material name="black">
+        <color rgba="0.0 0.0 0.0 2.0"/>
       </material>
     </visual>
   </link>
@@ -189,8 +189,8 @@
         <cylinder radius="0.036" length="0.016"/>
       </geometry>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <material name="red">
-        <color rgba="1.0 0.0 0.0 2.0"/>
+      <material name="black">
+        <color rgba="0.0 0.0 0.0 2.0"/>
       </material>
     </visual>
   </link>
