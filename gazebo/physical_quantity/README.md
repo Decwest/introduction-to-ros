@@ -109,25 +109,25 @@ massについては，今回は車輪の質量を0.1kgとします．
 
 今回は車輪に対して上図のようにxyz軸が重心に位置しています．赤がx, 緑がy, 青がzです．(RGBとxyzの順番が一致していると覚えましょう)
 
-よって，xyz周りの慣性モーメントはそれぞれ以下の式で求められます．なお，$M$は質量，$R$は半径，$h$は高さです.
+よって，xyz周りの慣性モーメントはそれぞれ以下の式で求められます．なお，<img src="https://latex.codecogs.com/svg.latex?%5Cinline%20M"/>は質量，<img src="https://latex.codecogs.com/svg.latex?%5Cinline%20R"/>は半径，<img src="https://latex.codecogs.com/svg.latex?%5Cinline%20h"/>は高さです.
 
 
 - x軸周り
 
-    $I_{xx}=M\left(\dfrac{R^2}{4}+ \dfrac{h^2}{12} \right)$
+    <img src="https://latex.codecogs.com/svg.latex?I_%7Bxx%7D%3DM%5Cleft%28%5Cdfrac%7BR%5E2%7D%7B4%7D&plus;%20%5Cdfrac%7Bh%5E2%7D%7B12%7D%20%5Cright%29"/>
 
 - y軸周り
 
-    $I_{yy}=M\left(\dfrac{R^2}{4}+ \dfrac{h^2}{12} \right)$
+    <img src="https://latex.codecogs.com/svg.latex?I_%7Bxx%7D%3DM%5Cleft%28%5Cdfrac%7BR%5E2%7D%7B4%7D&plus;%20%5Cdfrac%7Bh%5E2%7D%7B12%7D%20%5Cright%29"/>
     
 - z軸周り
 
-    $I_{zz}=\dfrac{1}{2}MR^2$
+    <img src="https://latex.codecogs.com/svg.latex?I_%7Bzz%7D%3D%5Cdfrac%7B1%7D%7B2%7DMR%5E2"/>
     
 
 参考：[剛体の慣性モーメントの計算](https://physics-school.com/moment-of-inertia/)
 
-今回，$M=0.1$, $R=0.036$, $h=0.016$なので，上式に代入することでinertiaの項目を埋めることができます.
+今回，<img src="https://latex.codecogs.com/svg.latex?%5Cinline%20M%3D0.1"/>, <img src="https://latex.codecogs.com/svg.latex?%5Cinline%20R%3D0.036"/>, <img src="https://latex.codecogs.com/svg.latex?%5Cinline%20h%3D0.016"/>なので，上式に代入することでinertiaの項目を埋めることができます.
 
 ### 色
 ```xml
@@ -201,9 +201,9 @@ massについては，今回は車輪の質量を0.1kgとします．
 - 摩擦係数0.1
 - 白色
 
-なお，慣性モーメントはxyz軸のどの軸中心で回しても以下の値となります．ただし，$M=0.05, R=0.01$です．
+なお，慣性モーメントはxyz軸のどの軸中心で回しても以下の値となります．ただし，<img src="https://latex.codecogs.com/svg.latex?%5Cinline%20M%3D0.05%2C%20R%3D0.01"/>です．
 
-$I=\dfrac{2}{5}MR^2$
+<img src="https://latex.codecogs.com/svg.latex?I%3D%5Cdfrac%7B2%7D%7B5%7DMR%5E2"/>
 
 ### wheel_link_right, wheel_link_left
 - 半径0.036m, 高さ0.016mの円柱
@@ -438,13 +438,14 @@ $I=\dfrac{2}{5}MR^2$
 ## 余談
 ### 慣性モーメントテンソルについて
 慣性モーメントは回転軸に対する物体の回転のしにくさを表しますが，xyzの各座標軸における回転のしにくさを以下のようにひとつの行列で表したものを慣性モーメントテンソルといいます．
-このうち，$I_{xx}$はx軸周りの慣性モーメント，$I_{yy}$はy軸周りの慣性モーメント，$I_{zz}$はz軸周りの慣性モーメントになります．非対角成分は慣性乗積といいます．
+このうち，<img src="https://latex.codecogs.com/svg.latex?%5Cinline%20I_%7Bxx%7D"/>はx軸周りの慣性モーメント，<img src="https://latex.codecogs.com/svg.latex?%5Cinline%20I_%7Byy%7D"/>はy軸周りの慣性モーメント，<img src="https://latex.codecogs.com/svg.latex?%5Cinline%20I_%7Bzz%7D"/>はz軸周りの慣性モーメントになります．非対角成分は慣性乗積といいます．
 
-$I=\left(\begin{array}{c}I_{xx} & I_{xy} & I_{xz}\\ I_{yx} & I_{yy} & I_{yz}\\ I_{zx} & I_{zy} & I_{zz}\end{array}\right)$
+
+<img src="https://latex.codecogs.com/svg.latex?I%3D%5Cbegin%7Bpmatrix%7D%20I_%7Bxx%7D%20%26%20I_%7Bxy%7D%20%26%20I_%7Bxz%7D%5C%5C%20I_%7Byx%7D%20%26%20I_%7Byy%7D%20%26%20I_%7Byz%7D%5C%5C%20I_%7Bzx%7D%20%26%20I_%7Bzy%7D%20%26%20I_%7Bzz%7D%20%5Cend%7Bpmatrix%7D"/>
 
 ここで，xyz座標軸をうまくとることで，慣性乗積を0にすることができ，以下の形で表すことができます．イメージ的には，例えば今回の車輪のように，xyz軸それぞれに対して物体の形状が対称である場合，各軸に対して"きれいに"回転するので慣性乗積が0になります．（対称な場合，非対角成分が回転の各ステップにおいて相殺されるイメージです）
 
-$I=\left(\begin{array}{c}I_{xx} & 0 & 0\\ 0 & I_{yy} & 0\\ 0 & 0 & I_{zz}\end{array}\right)$
+<img src="https://latex.codecogs.com/svg.latex?I%3D%5Cbegin%7Bpmatrix%7D%20I_%7Bxx%7D%20%26%200%20%26%200%5C%5C%200%20%26%20I_%7Byy%7D%20%26%200%5C%5C%200%20%26%200%20%26%20I_%7Bzz%7D%20%5Cend%7Bpmatrix%7D"/>
 
 参考リンク
 - [剛体の慣性モーメントの計算](https://physics-school.com/moment-of-inertia/)
