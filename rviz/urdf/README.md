@@ -112,12 +112,6 @@ justaway.urdf
         <color rgba="1.0 0.0 0.0 2.0"/>
       </material>
     </visual>
-    <collision>
-      <geometry>
-        <cylinder radius="0.2" length="0.6"/>
-      </geometry>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-    </collision>
   </link>
 
   <link name="head_link">
@@ -130,12 +124,6 @@ justaway.urdf
         <color rgba="1.0 0.0 0.0 2.0"/>
       </material>
     </visual>
-    <collision>
-      <geometry>
-        <sphere radius="0.15"/>
-      </geometry>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-    </collision>
   </link>
   
   <joint name="body_joint" type="fixed">
@@ -175,25 +163,14 @@ urdfに必須で，ロボットの名前を記述します
         <color rgba="1.0 0.0 0.0 2.0"/>
       </material>
     </visual>
-    <collision>
-      <geometry>
-        <cylinder radius="0.2" length="0.6"/>
-      </geometry>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-    </collision>
   </link>
 ```
 大まかに構造を述べると，次のようになっています
 - link：リンクの名前
     - visual：見た目に関する記述
         - geometry：基本図形の形状
-        - origin：重心の座標
+        - origin：リンク座標系から見たリンクの重心の位置
         - material：色など
-    - collision：衝突判定に関する記述
-        - geometry：基本図形の形状
-        - origin：重心の座標
-
-visualとcollisionは基本同じ寸法でよいですが，見た目より衝突判定を緩くしたい場合はcollisionの寸法を少し小さく書いたりします．
 
 - geometryについて
     - 球の場合：`<sphere radius="球の半径"/>`
@@ -201,9 +178,9 @@ visualとcollisionは基本同じ寸法でよいですが，見た目より衝�
     - 直方体の場合：`<box size="縦 横 高さ"/>`
     - 単位はメートルです．
 - originについて
-    - 座標系からの相対位置
+    - リンク座標系から見たリンクの重心の位置
     - x, y, z, roll, pitch, yaw
-    - originが0の時は，各リンクの重心が座標原点となります．基本的には，originを0とし，ジョイントで各リンクの重心の相対位置関係を記述することが多いです．
+    - originが0の場合，各リンクの重心はリンク座標系の原点に位置します．リンク座標系同士の位置関係はジョイントで記述されます．したがって，originを0とし，ジョイントで各リンクの重心の位置関係を記述することが多いです．
 - colorについて
     - `<color rgba="r g b alpha"/>`
     - alpha値1で不透明のはずですが，なぜか2くらいにしないと不透明にならないので今回は2にしています，
@@ -227,7 +204,7 @@ head_linkもbody_linkと同様の表記なので，上記を見て解読して�
 - joint：ジョイントの名前
     - parent：親リンクの名前
     - child：子リンクの名前
-    - origin：親リンクの座標系から見た子リンクの位置．すなわち，親リンクの重心から見た子リンクの重心の位置です．
+    - origin：親リンクの座標系から見た子リンクの座標系の位置．すなわち，各リンクのoriginが0の場合，親リンクの重心から見た子リンクの重心の位置です．
 
 今回は，base_linkから真上に30cmのところにbody_linkの重心．
 body_linkの重心から真上に30cmのところにhead_linkの重心があるため，上記のようなoriginになります．
@@ -295,12 +272,6 @@ handyfan.urdf
         <color rgba="1.0 1.0 1.0 2.0"/>
       </material>
     </visual>
-    <collision>
-      <geometry>
-        <box size="0.04 0.02 0.20"/>
-      </geometry>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-    </collision>
   </link>
 
   <link name="fan_link">
@@ -313,12 +284,6 @@ handyfan.urdf
         <color rgba="1.0 1.0 1.0 2.0"/>
       </material>
     </visual>
-    <collision>
-      <geometry>
-        <cylinder radius="0.05" length="0.02"/>
-      </geometry>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-    </collision>
   </link>
   
   <joint name="body_joint" type="fixed">
@@ -332,7 +297,6 @@ handyfan.urdf
     <child  link="fan_link"/>
     <origin xyz="0.0 0.02 0.06" rpy="1.570796326794897 0 0" />
     <axis xyz="0 0 1" />
-    <limit effort="0" velocity="0"/>
   </joint>
 
 </robot>
@@ -344,7 +308,6 @@ handyfan.urdf
     <child  link="fan_link"/>
     <origin xyz="0.0 0.02 0.06" rpy="1.570796326794897 0 0" />
     <axis xyz="0 0 1" />
-    <limit effort="0" velocity="0"/>
   </joint>
 ```
 - `<origin>`タグ
@@ -352,8 +315,6 @@ handyfan.urdf
 - `<axis>`タグ
     - x軸，y軸，z軸周り回転の単位ベクトルです．今回はプロペラみたいに横に回したいということで，これは上向きのz軸周り回転なので`<axis xyz="0 0 1" />`としています．なお，反時計回りが正で，逆回りにしたいときは-1とすればよいです．
     - 実際は，一発で所望の回転軸を当てるのは割と難しいので，適当に色々試してあったら採用みたいな感じですかね
-- limitタグ
-    - 回転ジョイントには必須の項目です．effortとvelocityは関節が出せる最大の速度とトルクを表し，今後Gazeboという物理シミュレータを使う上で影響してきます．今回は関係ないので適当に0にしています．
 
 #### ロボットモデル可視化
 ```bash
