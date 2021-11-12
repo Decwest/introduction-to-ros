@@ -28,7 +28,7 @@ roomba.urdfに記述していきます．
 ### ジョイント作成
 1. base_linkとbody_linkの固定ジョイントbody_jointを作成する
 1. body_linkとball_linkの固定ジョイントball_joint_front, ball_joint_backを作成する
-    - 補足：一般的に，ロボット座標系はロボット前方をx軸，ロボット上方をz軸，ロボット左方をy軸となるように設定します．なので，base_linkやbody_linkのx座標がロボット前方になるようにしましょう．すなわち，ball_link_frontはbody_linkのx座標正方向に0.11mのところに設置するようにしましょう．
+    - 補足：一般的に，ロボット座標系はロボット前方をx軸，ロボット上方をz軸，ロボット左方をy軸となるように設定します．なので，base_linkやbody_linkのx軸がロボット前方になるようにしましょう．すなわち，ball_link_frontはbody_linkのx座標正方向に0.11mのところに設置するようにしましょう．
 1. body_linkとwheel_linkの回転ジョイントwheel_joint_right, wheel_joint_leftを作成する
 
 解答は[こちら](./answer/)

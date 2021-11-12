@@ -17,13 +17,19 @@ Gazeboの回転ジョイントをROSトピックで直接回転させること�
 
 ## differential_drive_controller
 
-roomba_sim.urdfの末尾に以下を追記します．Gazebo Tutorialからコピペして改変したのでパラメータの説明付きです．興味のある人は説明も読んでみてください．
+roomba_sim.urdfの末尾に以下を追記します．Gazebo Tutorialからコピペしたのがベースです．ただし，Gazebo Tutorialに載っている情報が少し古かったので，私がコードを掘って一部修正しました．ROSは結構こういうことがあります．オープンソースなので，Wiki通りに動かない場合はコードを掘ることを推奨します．興味のある人は説明も読んでみてください．
+
+参考：コード
+
+[gazebo_ros_diff_drive.cpp](https://github.com/ros-simulation/gazebo_ros_pkgs/blob/noetic-devel/gazebo_plugins/src/gazebo_ros_diff_drive.cpp)
+
+[gazebo_ros_diff_drive.h](https://github.com/ros-simulation/gazebo_ros_pkgs/blob/noetic-devel/gazebo_plugins/include/gazebo_plugins/gazebo_ros_diff_drive.h)
 
 ```xml
 <gazebo>
   <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
 
-    <!-- Plugin update rate in Hz -->
+    <!-- Plugin update rate in Hz, defaults to 100 Hz -->
     <updateRate>30</updateRate>
 
     <!-- Name of left joint, defaults to `left_joint` -->
@@ -56,20 +62,26 @@ roomba_sim.urdfの末尾に以下を追記します．Gazebo Tutorialからコ�
     <!-- Robot frame to calculate odometry from, defaults to `base_footprint` -->
     <robotBaseFrame>base_link</robotBaseFrame>
 
-    <!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
-    <odometrySource>1</odometrySource>
+    <!-- Odometry source, encoder or world, defaults to world -->
+    <odometrySource>world</odometrySource>
+
+    <!-- Set to 1 to create odom publisher, defaults to 1 -->
+    <publishTf>1</publishTf>
 
     <!-- Set to true to publish transforms for the wheel links, defaults to false -->
     <publishWheelTF>true</publishWheelTF>
 
     <!-- Set to true to publish transforms for the odometry, defaults to true -->
-    <publishOdom>true</publishOdom>
+    <publishOdomTF>true</publishOdomTF>
 
     <!-- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -->
     <publishWheelJointState>true</publishWheelJointState>
 
     <!-- Set to true to swap right and left wheels, defaults to true -->
     <legacyMode>false</legacyMode>
+
+    <!-- DebugMode or not, na or Debug, defaults to na -->
+    <rosDebugLevel>na</rosDebugLevel>
   </plugin>
 </gazebo>
 ```
