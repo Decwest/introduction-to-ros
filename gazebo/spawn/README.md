@@ -125,7 +125,7 @@ my_urdf_tutorialパッケージの場所まで移動したら，configという�
 
 <img src='./fig/9.png' width="500" >
 
-my_urdf_tutorial/config配下にroboto_simulation.rvizを作成しましょう．以下のようにrobot_simulationと入力してSaveを押せばOKです．
+my_urdf_tutorial/config配下にrobot_simulation.rvizを作成しましょう．以下のようにrobot_simulationと入力してSaveを押せばOKです．
 
 <img src='./fig/10.png' width="500" >
 

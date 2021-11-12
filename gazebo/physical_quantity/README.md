@@ -249,8 +249,6 @@ massについては，今回は車輪の質量を0.1kgとします．
 
   <gazebo reference="body_link">
     <material>Gazebo/White</material>
-    <mu1 value="1.0" />
-    <mu2 value="1.0" />
   </gazebo>
 
   <link name="ball_link_front">
