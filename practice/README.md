@@ -186,8 +186,8 @@ roslaunch room_circuit_controller room_circuit_controller.launch
 
 また，実際に部屋のような環境で確認したい方は，以下の手順に従うと部屋のような環境を用意できます！
 1. my_urdf_tutorial配下に`worlds`ディレクトリを作成
-1. worldsディレクトリの中に`room.world`という名前のファイルを作成
-1. `room.world`にこちらの内容をコピペ
+1. worldディレクトリの中に`room.world`という名前のファイルを作成
+1. `room.world`に[こちらの内容](https://raw.githubusercontent.com/Decwest/introduction-to-ros/main/world/room.world)をコピペ
 
 ## 問題3
 問題3.1: velocity, avoid_velocity, avoid_distance, avoid_angleをrosparam化しましょう．
