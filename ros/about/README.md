@@ -67,7 +67,7 @@ ROS (Robot Operating System) はロボットの研究開発を促進するライ
 
 
 
-<img src='https://raw.githubusercontent.com/Decwest/introduction-to-ros/main/fundamental/about/fig/1.png' width="500" >
+<img src='./fig/1.png' width="500" >
 
 
 

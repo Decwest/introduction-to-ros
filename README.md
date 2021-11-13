@@ -36,19 +36,19 @@ Ubuntu環境にROSをインストールします．
 
 ## ROSの基本的な事項
 
-### [ROSとは](./fundamental/about/)
+### [ROSとは](./ros/about/)
 ROSとはなにか簡単に説明します。
 
-### [トピック通信実践](./fundamental/topic/)
+### [トピック通信実践](./ros/topic/)
 ROSの基本的な概念であるトピック通信について実装を通して理解します。
 
-### [rosparam](./fundamental/rosparam/)
+### [rosparam](./ros/rosparam/)
 外部からパラメータの値を受け取れるようなROSノードの書き方について説明します．
 
-### [roslaunch](./fundamental/roslaunch/)
+### [roslaunch](./ros/roslaunch/)
 複数のノードを同時に起動したりそれぞれにパラメータを渡したりすることを一つのファイルで記述可能なroslaunchについて説明します．
 
-### [コマンドラインツール](./fundamental/command/)
+### [コマンドラインツール](./ros/command/)
 ターミナル上で使用可能な，ROS環境の解析に有用なコマンドラインツールをいくつか紹介します．
 
 
@@ -73,7 +73,7 @@ ROSと相性の良い物理シミュレータであるGazeboについて，で�
 ### [URDFにアクチュエータを追加](./gazebo/actuator)
 ROSトピックでロボットの車輪を回せるようにするために，アクチュエータの記述を追加し，ROSとGazeboをつなぎこみます．
 
-### [Gazebo上にロボットをスポーン](./gazebo/actuator)
+### [Gazebo上にロボットをスポーン](./gazebo/spawn)
 Gazebo上にロボットをスポーンさせるlaunchファイルを書きます．
 
 ### [ロボットモデルにセンサを追加](./gazebo/sensor)
