@@ -30,5 +30,6 @@ int main(int argc, char **argv)
     sub = n.subscribe("/scan", 1, scanCallback);
 
     ros::spin();
+    return 0;
 }
 ```

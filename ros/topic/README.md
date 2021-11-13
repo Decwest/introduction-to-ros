@@ -278,7 +278,7 @@ rqt_graphというコマンドを打つと，ROS nodeとtopicの関係を以下�
 
 
 ## リンク
-[次のページ](../roslaunch/)
+[次のページ](../rosparam/)
 
 [目次](../../)
 

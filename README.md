@@ -81,3 +81,12 @@ Gazeboではいくつかのセンサのシミュレーションも可能です�
 
 ## [演習：部屋を巡回するルンバのROSプログラミング](./practice/)
 今までの章でROSの基礎，2D LiDARを積んだ移動ロボットのシミュレーションモデルの作成を行いました．本章では，2D LiDARで取得した周囲の障害物情報を用いて，障害物にぶつからないように部屋を巡回する知能ロボットのコード作成をROSを用いて行います．
+
+---
+参考
+
+本サイトで作成するコードの完成形は以下のリポジトリにまとめてあります．
+
+https://github.com/Decwest/introduction-to-ros-pkgs
+
+[introduction-to-ros-pkgs](https://github.com/Decwest/introduction-to-ros-pkgs)

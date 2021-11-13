@@ -185,14 +185,51 @@ roslaunch room_circuit_controller room_circuit_controller.launch
 動いたらOKで，さらに前方に障害物を置いてみて障害物回避が行われれば成功です！
 
 また，実際に部屋のような環境で確認したい方は，以下の手順に従うと部屋のような環境を用意できます！
-1. my_urdf_tutorial配下に`worlds`ディレクトリを作成
+1. my_urdf_tutorial配下に`world`ディレクトリを作成
 1. worldディレクトリの中に`room.world`という名前のファイルを作成
-1. `room.world`に[こちらの内容](https://raw.githubusercontent.com/Decwest/introduction-to-ros/main/world/room.world)をコピペ
+1. `room.world`に[こちらの内容](https://github.com/Decwest/introduction-to-ros/blob/main/practice/world/room.world)をコピペ
+1. my_urdf_tutorial/launch/robot_simulation.launchを下記のように変更．gazebo起動時にworldファイルを読み込むように編集します．
+
+    ```xml
+    <?xml version="1.0"?>
+    <launch>
+    <param name="robot_description" textfile="$(find my_urdf_tutorial)/urdf/roomba_sim.urdf"/>
+    <arg name="rvizconfig" default="$(find my_urdf_tutorial)/config/robot_simulation.rviz" />
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find my_urdf_tutorial)/world/room.world" />
+    </include>
+
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -x 0.0 -y 0.0 -z 0.5 -R 0 -P 0 -Y 0 -urdf -model roomba_sim" />
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen" />
+    
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig) -f odom"/>
+    </launch>
+    ```
+
+ここまで行い，
+
+```bash
+roslaunch room_circuit_controller room_circuit_controller.launch
+```
+
+すると以下のような環境が立ち上がります！（初回起動時はオブジェクトのダウンロードの為少し時間がかかります）
+
+
 
 ## 問題3
 問題3.1: velocity, avoid_velocity, avoid_distance, avoid_angleをrosparam化しましょう．
 
-問題3.2: launchファイルからrosparamを渡し，変更できるようにして見ましょう．
+問題3.2: room_circuit_controller.launchからrosparamを渡し，変更できるようにしてみましょう．
+
+参考
+
+[rosparam](../ros/rosparam/)
+
+[roslaunch](../ros/roslaunch/)
+
+解答は[こちら](./answer2/)
 
 ## リンク
 
