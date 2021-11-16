@@ -286,6 +286,8 @@ rqt_graphというコマンドを打つと，ROS nodeとtopicの関係を以下�
 
 ### 余談
 
+#### package.xml
+
 #### PythonでのROSノード実装例
 
 my_simple_publisher.py
