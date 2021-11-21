@@ -84,7 +84,7 @@ URDFによるモデルの記述は，**リンク**と**ジョイント**に分�
 以下をインストール
 ```bash
 sudo apt update
-sudo apt-get install -y liburdfdom-tools ros-noetic-urdf-tutorial ros-noetic-joint-state-publisher-gui
+sudo apt install -y liburdfdom-tools ros-noetic-urdf-tutorial ros-noetic-joint-state-publisher-gui
 ```
 
 ### パッケージ作成
