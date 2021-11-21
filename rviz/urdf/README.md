@@ -110,7 +110,7 @@ justaway.urdf
       </geometry>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <material name="red">
-        <color rgba="1.0 0.0 0.0 2.0"/>
+        <color rgba="1.0 0.0 0.0 1.0"/>
       </material>
     </visual>
   </link>
@@ -122,7 +122,7 @@ justaway.urdf
       </geometry>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <material name="red">
-        <color rgba="1.0 0.0 0.0 2.0"/>
+        <color rgba="1.0 0.0 0.0 1.0"/>
       </material>
     </visual>
   </link>
@@ -161,7 +161,7 @@ urdfに必須で，ロボットの名前を記述します
       </geometry>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <material name="red">
-        <color rgba="1.0 0.0 0.0 2.0"/>
+        <color rgba="1.0 0.0 0.0 1.0"/>
       </material>
     </visual>
   </link>
@@ -184,7 +184,6 @@ urdfに必須で，ロボットの名前を記述します
     - originが0の場合，各リンクの重心はリンク座標系の原点に位置します．リンク座標系同士の位置関係はジョイントで記述されます．したがって，originを0とし，ジョイントで各リンクの重心の位置関係を記述することが多いです．
 - colorについて
     - `<color rgba="r g b alpha"/>`
-    - alpha値1で不透明のはずですが，なぜか2くらいにしないと不透明にならないので今回は2にしています，
 
 head_linkもbody_linkと同様の表記なので，上記を見て解読してみましょう．
 
@@ -239,7 +238,7 @@ roslaunch urdf_tutorial display.launch model:=justaway.urdf
 ## 2. 回転ジョイントの作成
 ジャスタウェイの頭を回転させてもよくわからないので，以下のように直方体に円柱を回転ジョイントで接続した手持ち扇風機的なものを作成します．
 
-<img src='./fig/5.png' width="500" >
+<img src='./fig/7.png' width="500" >
 
 <img src='./fig/4.png' width="200" >
 
@@ -270,7 +269,7 @@ handyfan.urdf
       </geometry>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <material name="white">
-        <color rgba="1.0 1.0 1.0 2.0"/>
+        <color rgba="1.0 1.0 1.0 1.0"/>
       </material>
     </visual>
   </link>
@@ -282,7 +281,7 @@ handyfan.urdf
       </geometry>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <material name="white">
-        <color rgba="1.0 1.0 1.0 2.0"/>
+        <color rgba="1.0 1.0 1.0 1.0"/>
       </material>
     </visual>
   </link>
