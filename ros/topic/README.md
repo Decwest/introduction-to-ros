@@ -287,6 +287,16 @@ rqt_graphというコマンドを打つと，ROS nodeとtopicの関係を以下�
 ### 余談
 
 #### package.xml
+catkin_create_pkgすると自動生成されるファイルの一つです．ROS packageに関する情報が記載されており，ROS側はpackage.xmlが配置されているディレクトリをROSパッケージだと認識します．
+
+パッケージ製作者の名前やメールアドレスといった事務的な情報から，このROSパッケージが依存している他のROSパッケージやライブラリの情報等が記載されており，特に後者は重要です．
+興味のある方は以下のリンクを読んでみてください．
+
+[ROS講座97 CMakeList.txtとpackage.xmlの書き方](https://qiita.com/srs/items/30c81c3f26f1987b0afa)
+
+[野良packageへ依存したROS packageのビルドを簡単にする](https://qiita.com/strv/items/dbde72e20a8efe62ef95)
+
+[ROS Wiki](http://wiki.ros.org/catkin/package.xml)
 
 #### PythonでのROSノード実装例
 
