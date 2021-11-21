@@ -190,7 +190,7 @@
       </geometry>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <material name="black">
-        <color rgba="0.0 0.0 0.0 2.0"/>
+        <color rgba="0.0 0.0 0.0 1.0"/>
       </material>
     </visual>
   </link>
