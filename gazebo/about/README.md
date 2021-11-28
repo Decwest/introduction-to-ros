@@ -24,7 +24,7 @@ URDFで記述したロボットモデルをGazebo上にスポーンさせ，ROS�
 
 ## リンク
 
-[次のページ](../phisical_quantity/)
+[次のページ](../physical_quantity/)
 
 [目次](../../)
 
