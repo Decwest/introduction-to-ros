@@ -129,7 +129,7 @@ int main(int argc, char **argv)
 
 - Ctrl-C等で`whlie(ros.ok())`を抜けたら`return 0;`でプログラム終了
 
-#### my_simple_subsciber.cpp
+#### my_simple_subscriber.cpp
 ```cpp
 #include <ros/ros.h>
 #include <std_msgs/String.h>
