@@ -111,7 +111,6 @@ int main(int argc, char **argv)
         loop_rate.sleep();
     }
     return 0;
-}
 ```
 
 メイン関数後半
@@ -159,7 +158,6 @@ main関数のノードハンドラまではpublisherと同様なので割愛．
 
     ros::spin();
     return 0;
-}
 ```
 - ROS masterに，このノードがstd_msgs::String型のトピックmy_topicをsubscribeすることを通知．（要するにsubscriberの作成）
     - 第二引数はキューサイズ．publisherのところで述べたことと同様に，過去のデータを使用しない場合は1を推奨．
