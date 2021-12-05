@@ -147,7 +147,7 @@ my_urdf_tutorial/config配下にrobot_simulation.rvizを作成しましょう．
 </launch>
 ```
 
-`  <arg name="rvizconfig" default="$(find my_urdf_tutorial)/config/robot_simulation.rviz" />`を追加し，Rviz起動部分を`  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig) -f odom"/>`と書き換えました．
+`arg name="rvizconfig" default="$(find my_urdf_tutorial)/config/robot_simulation.rviz" />`を追加し，Rviz起動部分を`<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig) -f odom"/>`と書き換えました．
 rviz configファイルをlaunchの変数として読み込み，Rviz起動時に渡しています．また，Rviz起動時に`-f odom`とすることで座標系 (frame) がmapではなく始めからodomに固定されます．
 
 

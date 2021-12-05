@@ -31,7 +31,7 @@ my_urdf_tutorial/urdfの中に，roomba_sim.urdfというroomba.urdfをコピペ
       </geometry>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <material name="black">
-        <color rgba="0.0 0.0 0.0 2.0"/>
+        <color rgba="0.0 0.0 0.0 1.0"/>
       </material>
     </visual>
     <collision>
@@ -227,7 +227,7 @@ massについては，今回は車輪の質量を0.1kgとします．
       </geometry>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <material name="white">
-        <color rgba="1.0 1.0 1.0 2.0"/>
+        <color rgba="1.0 1.0 1.0 1.0"/>
       </material>
     </visual>
     <collision>
@@ -258,7 +258,7 @@ massについては，今回は車輪の質量を0.1kgとします．
       </geometry>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <material name="white">
-        <color rgba="1.0 1.0 1.0 2.0"/>
+        <color rgba="1.0 1.0 1.0 1.0"/>
       </material>
     </visual>
     <collision>
@@ -291,7 +291,7 @@ massについては，今回は車輪の質量を0.1kgとします．
       </geometry>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <material name="white">
-        <color rgba="1.0 1.0 1.0 2.0"/>
+        <color rgba="1.0 1.0 1.0 1.0"/>
       </material>
     </visual>
     <collision>
@@ -324,7 +324,7 @@ massについては，今回は車輪の質量を0.1kgとします．
       </geometry>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <material name="black">
-        <color rgba="0.0 0.0 0.0 2.0"/>
+        <color rgba="0.0 0.0 0.0 1.0"/>
       </material>
     </visual>
     <collision>
@@ -357,7 +357,7 @@ massについては，今回は車輪の質量を0.1kgとします．
       </geometry>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <material name="black">
-        <color rgba="0.0 0.0 0.0 2.0"/>
+        <color rgba="0.0 0.0 0.0 1.0"/>
       </material>
     </visual>
     <collision>

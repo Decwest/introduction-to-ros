@@ -116,7 +116,6 @@ Gazeboのros_controlプラグインを用いてGazeboとROSをつなぎ，ROS側
 [ros_controls/ros_controllers の制御の仕組み (position/effort/velocity_controllers の基礎)](https://qiita.com/MoriKen/items/78b0ad8c1eae257646dd)
 
 
-
 ### Gazeboの回転ジョイントをROSトピックで制御する
 トピック名：`/名前空間/ros_controlのコントローラ名/command`
 
@@ -124,8 +123,20 @@ Gazeboのros_controlプラグインを用いてGazeboとROSをつなぎ，ROS側
 [ROS講座27 gazeboでjointを動かす](https://qiita.com/srs/items/8868a8bef3752c3464a2)
 
 ### Gazeboの回転ジョイントのステータスをROSトピックで取得する
-joint_state_publisherで一括取得
+joint_state_publisherで一括取得可能
+
+[joint_state_publisher](http://wiki.ros.org/joint_state_publisher)
+
 ### odometry
 車輪型移動ロボットにおける車輪の回転角からそれぞれの車輪の移動量を求め、ロボットの位置を推定する手法の総称をオドメトリ (odometry) と言います．
-### Frame
-TF
+
+### TF
+すでにURDFを記述している段階で，リンク座標系というものが登場していると思います．そして今回base_linkというリンク座標系をdifferential_drive_controllerの`<robotBaseFrame>`に登録しています．ROSでは座標系をFrameとよび，複数のFrameは**TF**という枠組みで管理されています．TFの理解はROSを使用する上で必須といえ，またTFの考え方を習得することで様々な物体の位置関係を明瞭に記述，取得できるようになります．
+
+参考になるリンク：
+
+[tf - ROS Wiki](http://wiki.ros.org/ja/tf)
+
+[ROS講座15 tf-1:概要](https://qiita.com/srs/items/6044686a2a734f7c4c50)
+
+[世界で一番簡単なtfの使い方](https://myenigma.hatenablog.com/entry/20130210/1360491625)

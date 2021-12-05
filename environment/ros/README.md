@@ -75,18 +75,16 @@ echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 
 **各行の説明**
 
-+ ~/catkin_ws/srcというディレクトリ（フォルダ）を作成
++ `~/catkin_ws/src`というディレクトリ（フォルダ）を作成
   - ~は[ホームディレクトリ](https://uxmilk.jp/27448)
   - ホームディレクトリにcatkin_wsというフォルダを作成し，さらにその中にsrcフォルダを作成
   - mkdirはmake directoryの略．-pオプションをつけると一気に複数階層分作成可能．
-+ ~/catkin_wsに作業ディレクトリを移動
++ `~/catkin_ws`に作業ディレクトリを移動
   - cdはchange directoryの略
 + ROSパッケージをビルドするコマンド
   - 初回実行時はその際にいるディレクトリをワークスペースと認識．今回はその用途．
-+ ~/catkin_ws/devel/setup.bashというbashスクリプトを実行（これによりROS関連のディレクトリにパスが通る）
-+ "source \~/catkin_ws/devel/setup.bash"という記述を~/.bashrcに追記
-
-</div></details>
++ `~/catkin_ws/devel/setup.bash`というbashスクリプトを実行（これによりROS関連のディレクトリにパスが通る）
++ "source \~/catkin_ws/devel/setup.bash"という記述を`~/.bashrc`に追記
 
 
 ## 動作確認
@@ -141,7 +139,7 @@ echo "export SVGA_VGPU10=0" >> ~/.profile
 
 VS Codeエディタをインストールしておくとコードの作成が楽です．
 
-https://code.visualstudio.com/download
+[https://code.visualstudio.com/download](https://code.visualstudio.com/download)
 
 
 **推奨拡張機能**
@@ -152,14 +150,14 @@ https://code.visualstudio.com/download
 - ROS
 
 ## Ubuntu 日本語化
-VMwareのUbutnu簡単インストールを行うと英語版がインストールされ，キーボード配置が英字キーボードとなってしまい，日本で販売されているキーボードと若干異なってしまうのでUbuntuを日本語化します．
+VMwareのUbuntu簡単インストールを行うと英語版がインストールされ，キーボード配置が英字キーボードとなってしまい，日本で販売されているキーボードと若干異なってしまうのでUbuntuを日本語化します．
 
 参考
 
 [Ubuntu20.04の日本語化](https://qiita.com/yamagarsan/items/563a844993d32460bd51)
 
 ## リンク
-[次のページ](../../fundamental/about)
+[次のページ](../../ros/about)
 
 [目次](../../)
 

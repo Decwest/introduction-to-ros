@@ -338,3 +338,12 @@ roslaunch urdf_tutorial display.launch model:=handyfan.urdf
 
 ## 余談
 ### base_linkについて
+今回はロボット座標系の原点としてbase_linkを置くとしましたが，本来はbase_linkとはbaseとなるlinkの座標系であるべきです．
+
+以下のサイトの図解がわかりやすいですが，より厳密にやる場合，ロボットのbaseとなるlinkの座標系をbase_linkとし，base_link座標系を地面に投射した座標系（今回で言うbase_link）をbase_footprintという座標系にします．
+
+[ROSの座標変換TFについて](https://memo.soarcloud.com/ros%E3%81%AE%E5%BA%A7%E6%A8%99%E5%A4%89%E6%8F%9Btf%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/)
+
+ROSのnavigation stackというロボットの自律移動に関するパッケージの集合が上記の座標系設定を採用しているためこの座標系はよく用いられており，私も普段はこちらを用いています．ただ，自律移動ロボットの場合，base_footprintは大体base_linkのz座標をずらしただけの位置に存在することが多いため，本記事のようにbase_footprint=base_linkとする記法もよく見ます．
+
+[base_link vs base_footprint](https://answers.ros.org/question/291600/base_link-vs-base_footprint/)

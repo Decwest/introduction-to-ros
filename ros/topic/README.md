@@ -38,7 +38,7 @@ my_simple_publisherはmy_topicという名前のトピックをpublish，my_simp
 
 my_topicの型は[std_msgs::String](http://docs.ros.org/en/noetic/api/std_msgs/html/msg/String.html)として，"hello world!"という文字列を格納するという設計にします．
 
-<img src='https://i.imgur.com/0OS8D41.png' width="700" >
+<img src='./fig/1.png' width="500" >
 
 
 ### 実装
@@ -46,7 +46,8 @@ my_topicの型は[std_msgs::String](http://docs.ros.org/en/noetic/api/std_msgs/h
 srcディレクトリの中に以下のファイルを作成します．
 
 参考
-http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29
+
+[http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29](http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29)
 
 #### my_simple_publisher.cpp
 ```cpp
@@ -161,7 +162,7 @@ main関数のノードハンドラまではpublisherと同様なので割愛．
 ```
 - ROS masterに，このノードがstd_msgs::String型のトピックmy_topicをsubscribeすることを通知．（要するにsubscriberの作成）
     - 第二引数はキューサイズ．publisherのところで述べたことと同様に，過去のデータを使用しない場合は1を推奨．
-    - 第三引数はコールバック関数の登録．トピックをサブスクライブするとここで指定したコールバック関数が実行されるようになる．コールバック関数の中身は後程見る，
+    - 第三引数はコールバック関数の登録．トピックをサブスクライブするとここで指定したコールバック関数が実行されるようになる．コールバック関数の中身は後程見る．
 - `ros::spin()`でトピックのサブスクライブを監視します．無限ループになっていて，サブスクライブを検知したらコールバック関数が呼び出されます．Ctrl-Cが押される等，ROSのシャットダウンが入ると無限ループから抜けます．
     - 先程登場した`ros::spinOnce()`と何が違うのか？spinOnceは内部に無限ループを含んでおらず，spinOnceのタイミングでコールバックが呼び出されます（サブスクライブがあった場合）．
     - `ros::spin()`は`ros::spinOnce()`を用いて実質以下のように書けると思います．
@@ -227,7 +228,7 @@ my_simple_subscriberという実行ファイルをsrc/my_simple_subscriber.cpp�
 ```CMake
 target_link_libraries(my_simple_subscriber ${catkin_LIBRARIES})
 ```
-target_link_librariesで，my_simple_subscriberを作成する際に使用するライブラリをリンクさせることができますが，ROSでは`${catkin_LIBRARIES}`という環境変数を指定すれば基本的にはokです，
+target_link_librariesで，my_simple_subscriberを作成する際に使用するライブラリをリンクさせることができますが，ROSでは`${catkin_LIBRARIES}`という環境変数を指定すれば基本的にはokです．
 
 
 ### ビルド

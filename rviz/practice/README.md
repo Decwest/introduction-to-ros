@@ -47,3 +47,12 @@ roomba.urdfに記述していきます．
 
 ## 余談
 ### xacro
+車輪やキャスターのlinkは全く同じ形状なのに2回書く必要があるのめんどくさいなと思った方はいませんか？そういう方はぜひxacroについて調べてみてください．
+
+xacroを用いると，linkやjointを含むマクロを組んで適宜呼び出すことができたり，パラメータの設定やパラメータを用いた計算式の記述等も行えてURDFの記述を簡略化することができます．
+
+参考リンク
+
+[ROS講座68 xacroを使う1](https://qiita.com/srs/items/43528d00ee789171367f)
+
+[xacro - ROS Wiki](http://wiki.ros.org/xacro)

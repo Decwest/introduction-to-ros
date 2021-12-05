@@ -188,7 +188,7 @@ roslaunch my_urdf_tutorial robot_simulation.launch
 
 ## リンク
 
-[次のページ](../../)
+[次のページ](../../practice)
 
 [目次](../../)
 
