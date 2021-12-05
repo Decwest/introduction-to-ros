@@ -184,10 +184,10 @@ roslaunch room_circuit_controller room_circuit_controller.launch
 
 動いたらOKで，さらに前方に障害物を置いてみて障害物回避が行われれば成功です！
 
-また，実際に部屋のような環境で確認したい方は，以下の手順に従うと部屋のような環境を用意できます！
+また，実際に部屋のような環境で確認したい方は，私の方で部屋のような環境を用意したので以下の手順に従えば導入できます！
 1. my_urdf_tutorial配下に`world`ディレクトリを作成
 1. worldディレクトリの中に`room.world`という名前のファイルを作成
-1. `room.world`に[こちらの内容](https://github.com/Decwest/introduction-to-ros/blob/main/practice/world/room.world)をコピペ
+1. `room.world`に[こちらの内容](https://raw.githubusercontent.com/Decwest/introduction-to-ros/main/practice/world/room.world)をコピペ
 1. my_urdf_tutorial/launch/robot_simulation.launchを下記のように変更．gazebo起動時にworldファイルを読み込むように編集します．
 
     ```xml
@@ -216,12 +216,10 @@ roslaunch room_circuit_controller room_circuit_controller.launch
 
 すると以下のような環境が立ち上がります！（初回起動時はオブジェクトのダウンロードの為少し時間がかかります）
 
-
-
 ## 問題3
 問題3.1: velocity, avoid_velocity, avoid_distance, avoid_angleをrosparam化しましょう．
 
-問題3.2: room_circuit_controller.launchからrosparamを渡し，変更できるようにしてみましょう．
+問題3.2: room_circuit_controller.launchからパラメータを渡し，変更できるようにしてみましょう．
 
 参考
 
@@ -229,16 +227,31 @@ roslaunch room_circuit_controller room_circuit_controller.launch
 
 [roslaunch](../ros/roslaunch/)
 
-解答は[こちら](./answer2/)
+解答は[こちら](./answer3/)
+
+ここまでで演習は終了です！完成したら色々とパラメータをいじって遊んでみてください．
+
+## 最後に
+### 今回扱えなかったが重要なもの
+- カスタムROSメッセージ
+- TF
+- xacro
+
+各記事の余談に導入程度の記載をしています．興味のある方は追加で調べてみてください．
+
+### 自律移動ロボット
+本記事で自律移動ロボットのシミュレータが作成できたので，本環境を用いてそのまま自律移動ロボットの勉強が可能です．
+- ナビゲーション (autonomous mobile robot navigation)
+- 自己位置推定 (localization)
+- SLAM (Simultaneous Localization And Mapping)
+
+ROSパッケージ
+- navigation stack
+
+### 大会
+- AWS Robot Delivery Challenge
+- つくばチャレンジ
 
 ## リンク
 
 [目次](../../)
-
-
----
-
-## 余談
-### 今回扱えなかったが非常に重要なもの
-- カスタムROSメッセージ
-- TF

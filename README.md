@@ -87,6 +87,4 @@ Gazeboではいくつかのセンサのシミュレーションも可能です�
 
 本サイトで作成するコードの完成形は以下のリポジトリにまとめてあります．
 
-https://github.com/Decwest/introduction-to-ros-pkgs
-
-[introduction-to-ros-pkgs](https://github.com/Decwest/introduction-to-ros-pkgs)
+[https://github.com/Decwest/introduction-to-ros-pkgs](https://github.com/Decwest/introduction-to-ros-pkgs)
