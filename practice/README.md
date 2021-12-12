@@ -58,12 +58,12 @@ ROSトピックの型名でググると出てくるので，ググれるよう�
 [/cmd_vel](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/Twist.html)
 
 今回は，以下のような動作フローを考えてみます．
-- 2D LiDARの障害物情報をロボット左側から右側に向けて見る
+- 2D LiDARの障害物情報をロボット右側から左側に向けて見る
     - 以下の図のようにavoid_angle度分探索する．なお，この領域はロボット前方を軸に左右対称．
 - 障害物までの距離がavoid_distanceより小さい場合「障害物がある」とする
-    - 前方より左側に「障害物があったら」，速度angular_velocityでその場で時計回り回転
-    - 前方より左側にはないが右側に「障害物があったら」,
-    速度angular_velocityでその場で反時計回り回転
+    - 前方より右側に「障害物があったら」，速度angular_velocityでその場で反時計回り回転
+    - 前方より右側にはないが左側に「障害物があったら」,
+    速度angular_velocityでその場で時計回り回転
     - 前方より左側にも右側にもない場合は速度velocityで直進
 
 <img src='./fig/1.png' width="500" >
