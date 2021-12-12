@@ -84,7 +84,7 @@ float angular_velocity = 1.57; // 回転速度
 float avoid_distance = 1.0; // これ以上近いと障害物とみなす距離
 float avoid_angle = 60; // 障害物を探索する範囲
 
-void scanCallback(sensor_msgs::LaserScan msg)
+void scanCallback(const sensor_msgs::LaserScan &msg)
 {
     int center_index = msg.ranges.size() / 2;             // ロボット前方方向を表すインデックス
     int index_avoid_angle = avoid_angle * (M_PI / 180.0) / msg.angle_increment; // 障害物を探索する範囲に相当するインデックス

@@ -17,7 +17,7 @@ room_circuit_controller/srcにroom_circuit_controller.cppを作成．
 ros::Publisher pub;
 ros::Subscriber sub;
 
-void scanCallback(sensor_msgs::LaserScan msg)
+void scanCallback(const sensor_msgs::LaserScan &msg)
 {
 }
 
