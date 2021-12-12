@@ -217,7 +217,7 @@ roslaunch room_circuit_controller room_circuit_controller.launch
 すると以下のような環境が立ち上がります！（初回起動時はオブジェクトのダウンロードの為少し時間がかかります）
 
 ## 問題3
-問題3.1: velocity, avoid_velocity, avoid_distance, avoid_angleをrosparam化しましょう．
+問題3.1: velocity, angular_velocity, avoid_distance, avoid_angleをrosparam化しましょう．
 
 問題3.2: room_circuit_controller.launchからパラメータを渡し，変更できるようにしてみましょう．
 
