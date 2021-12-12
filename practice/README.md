@@ -233,24 +233,36 @@ roslaunch room_circuit_controller room_circuit_controller.launch
 
 ## 最後に
 ### 今回扱えなかったが重要なもの
-- カスタムROSメッセージ
-- TF
-- xacro
+- [カスタムROSメッセージ](../ros/command/#%E4%BD%99%E8%AB%87)
+- [TF](../gazebo/actuator/#%E4%BD%99%E8%AB%87)
+- [xacro](../rviz/practice/#%E4%BD%99%E8%AB%87)
 
-各記事の余談に導入程度の記載をしています．興味のある方は追加で調べてみてください．
+リンク先の記事の余談に導入程度の記載をしています．興味のある方は追加で調べてみてください．
 
 ### 自律移動ロボット
-本記事で自律移動ロボットのシミュレータが作成できたので，本環境を用いてそのまま自律移動ロボットの勉強が可能です．
+本記事で自律移動ロボットのシミュレータが作成できたので，本環境を用いてそのまま自律移動ロボットの勉強が可能です．自律移動ロボットの代表的な技術として以下が挙げられます．
+
 - ナビゲーション (autonomous mobile robot navigation)
+    - ロボットや自動運転車を，スタートからゴールに向けて誘導する技術です．ただゴールに向かうだけではなく，[障害物回避やロボットの制御性の考慮](https://qiita.com/MENDY/items/16343a00d37d14234437)を始め，[人間との調和性の配慮](https://www.sciencedirect.com/science/article/abs/pii/S0921889013001048)や，[ロボットが実行できるアクションを考慮](https://ieeexplore.ieee.org/abstract/document/9570359)するなど，賢い誘導法の研究が行われています．
 - 自己位置推定 (localization)
+    - ロボットをスタートからゴールに向けて誘導する際，自分が今どこにいるのかを推定する自己位置推定が必要です．以前の記事で[オドメトリ](../gazebo/actuator/#%E4%BD%99%E8%AB%87)を紹介しましたが，オドメトリには車輪のスリップや角度の積算誤差で推定にずれが生じたり，そもそも車輪のないドローン等には使えないという問題があります．そこで，事前に持っている地図と，センサから得られる周囲の環境情報を照合し，推定することが行われています．
+    （自分の家の自室から玄関まで目をつぶりながら移動することを考えてみましょう．家の間取りは知っているので何となくどこに向かえばよいかはわかるかもしれませんが、実際にやってみると大体思い通りにいかず壁に激突すると思います（オドメトリの推定誤差）．しかし，壁に触りながら移動すればなんとなく自分のいる場所が分かると思います（自己位置推定）．）
 - SLAM (Simultaneous Localization And Mapping)
+    - 上記の自己位置推定をするには事前に地図を持っておく必要があります．そこで，地図を持っていない場合，地図を移動中に作成しながら同時に自己位置推定も行う試みがSLAMです．SLAMにはLiDARの点群情報を元に行うLiDAR SLAMや，カメラ画像を元に行うVisual SLAMがあります．
 
-ROSパッケージ
-- navigation stack
+そして，上記の（基礎的な）技術が実装されているROSパッケージが公開されています．
 
-### 大会
-- AWS Robot Delivery Challenge
-- つくばチャレンジ
+[navigation stack](http://wiki.ros.org/navigation)
+
+本記事で作成したシミュレータでもnavigation stackは適用することができるため，興味のある方はぜひ導入してみてください．
+
+[navigation stackの構成がわかりやすい記事](https://qiita.com/MoriKen/items/0b75ab291ab0d95c37c2)
+
+### 自律移動ロボットに関連する大会
+- [AWS Robot Delivery Challenge](https://aws.amazon.com/jp/robot-delivery-challenge/)
+    - AWSが主催する自律移動ロボットのロボコンです．学生は一人から複数人のチームまで気軽に参加できます．
+- [つくばチャレンジ](https://tsukubachallenge.jp/2021/)
+    - 自律移動技術に関する本格的な大会です．
 
 ## リンク
 
